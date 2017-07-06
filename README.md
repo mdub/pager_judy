@@ -1,4 +1,5 @@
-# GDE make PagerDuty duty less painful
+# REA Group PagerDuty account
+GDE make PagerDuty duty less painful
 
 ## Why?
 
@@ -29,6 +30,7 @@ A few additional problems with the way REA teams manage their stuff in PagerDuty
 ## Next steps:
   - Assist Luke Harris and Sean Waller to adopt this for Data Services. Splitting out to PD service per system for them will require some effort.
   - Programattically generate the schedule (PSW are doing this already)
+  - Update/replace the pagerduty Slack bot
 
 ## Unknowns:
   - When should we migrate our AH supported things?
