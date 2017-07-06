@@ -36,15 +36,13 @@ A few additional problems with the way REA teams manage their stuff in PagerDuty
   - Luke Harris would like slack notifications for systems with AH support to go into both team and ah-alerts channels. Not sure how we'd do that yet.
 
 ## References
-### Internal
 - [New rea-group PagerDuty account](rea-group.pagerduty.com)
 - [Old rea-cobra PagerDuty account](rea-cobra.pagerduty.com)
 - Somewhat out of date explanation of [how the GDE pager works](https://community.rea-group.com/docs/DOC-47301)
 - [Some problems in the current DS/AAP/DE pager setup](https://community.rea-group.com/blogs/lukeck/2016/05/06/pager-setup-for-dsaapdelivery-eng)
 - [Conventions for naming things in the new shared PD account](https://community.rea-group.com/docs/DOC-59788-rea-central-pagerduty-account-rules)
 - [PSW's custodianator](https://git.realestate.com.au/cobra-psw/custodianator)
-
-### External
+- [REA's PagerDuty vendor repo](https://git.realestate.com.au/vendor/pagerduty)
 - [PagerDuty API docs](https://v2.developer.pagerduty.com/)
 - [PagerDuty docs](https://support.pagerduty.com/v1/docs/)
 - [PagerDuty account migration checklist](https://docs.google.com/document/d/1Xnm9ikm9kyTXlFyqP8vzgatlJ4g8iRYrNtWAcFyaCUo/edit?usp=sharing)
