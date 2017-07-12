@@ -1,0 +1,10 @@
+#! /usr/bin/env ruby
+
+$LOAD_PATH << File.expand_path("../../lib", __FILE__)
+
+require "pager_duty_ctl/cli"
+
+$stdout.sync = true
+$stderr.sync = true
+
+PagerDutyCtl::CLI::MainCommand.run

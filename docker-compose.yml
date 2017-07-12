@@ -1,0 +1,14 @@
+version: "2"
+
+services:
+  dev:
+    image: ruby:2.4
+    volumes:
+      - .:/work
+      - ruby2.4-bundle-cache:/usr/local/bundle
+    working_dir: /work
+    command: ["bash"]
+
+volumes:
+  ruby2.4-bundle-cache:
+    external: true
