@@ -1,0 +1,4 @@
+
+#!/bin/bash -eu
+
+$(dirname $0)/generate-pipeline | buildkite-agent pipeline upload
