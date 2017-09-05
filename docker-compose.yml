@@ -8,6 +8,8 @@ services:
       - ruby2.4-bundle-cache:/usr/local/bundle
     working_dir: /work
     command: ["bash"]
+    environment:
+      PAGER_DUTY_API_TOKEN: 
 
 volumes:
   ruby2.4-bundle-cache:

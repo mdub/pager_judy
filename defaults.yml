@@ -1,0 +1,3 @@
+service:
+  escalation_policy:
+    type: "escalation_policy_reference"

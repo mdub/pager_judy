@@ -1,0 +1,1328 @@
+[{"id"=>"PA5SDL1",
+  "name"=>"3rd party JS - Production - API",
+  "description"=>
+   "See here for details:\n" +
+   "https://git.realestate.com.au/resi/third-party-js-dependencies-monitoring",
+  "auto_resolve_timeout"=>nil,
+  "acknowledgement_timeout"=>3600,
+  "created_at"=>"2015-10-09T12:03:01+11:00",
+  "status"=>"active",
+  "last_incident_timestamp"=>"2017-08-09T10:04:21+10:00",
+  "teams"=>
+   [{"id"=>"P5994QA",
+     "type"=>"team_reference",
+     "summary"=>"PSW",
+     "self"=>"https://api.pagerduty.com/teams/P5994QA",
+     "html_url"=>"https://rea-cobra.pagerduty.com/teams/P5994QA"}],
+  "incident_urgency_rule"=>
+   {"type"=>"use_support_hours",
+    "during_support_hours"=>{"type"=>"constant", "urgency"=>"high"},
+    "outside_support_hours"=>{"type"=>"constant", "urgency"=>"low"}},
+  "scheduled_actions"=>
+   [{"type"=>"urgency_change",
+     "at"=>{"type"=>"named_time", "name"=>"support_hours_start"},
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+!!!
+     "to_urgency"=>"high"}],
+  "support_hours"=>
+   {"type"=>"fixed_time_per_day",
+    "time_zone"=>"Australia/Melbourne",
+    "days_of_week"=>[1, 2, 3, 4, 5],
+    "start_time"=>"09:00:00",
+    "end_time"=>"17:00:00"},
+  "escalation_policy"=>
+   {"id"=>"P3SRURE",
+    "type"=>"escalation_policy_reference",
+    "summary"=>"PSW",
+    "self"=>"https://api.pagerduty.com/escalation_policies/P3SRURE",
+    "html_url"=>"https://rea-cobra.pagerduty.com/escalation_policies/P3SRURE"},
+  "addons"=>[],
+  "privilege"=>nil,
+  "alert_creation"=>"create_incidents",
+  "integrations"=>
+   [{"id"=>"PE8ZSDJ",
+     "type"=>"generic_events_api_inbound_integration_reference",
+     "summary"=>"Generic API",
+     "self"=>"https://api.pagerduty.com/services/PA5SDL1/integrations/PE8ZSDJ",
+     "html_url"=>"https://rea-cobra.pagerduty.com/services/PA5SDL1/integrations/PE8ZSDJ"}],
+  "type"=>"service",
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+  "summary"=>"3rd party JS - Production - API",
+  "self"=>"https://api.pagerduty.com/services/PA5SDL1",
+  "html_url"=>"https://rea-cobra.pagerduty.com/services/PA5SDL1"},
+ {"id"=>"PDW2EKQ",
+  "name"=>"AAP Buildkite Agent Cluster",
+  "description"=>"Alarms for AAP Buildkite Agent Cluster",
+  "auto_resolve_timeout"=>nil,
+  "acknowledgement_timeout"=>nil,
+  "created_at"=>"2017-02-01T13:19:36+11:00",
+  "status"=>"active",
+  "last_incident_timestamp"=>"2017-03-27T15:58:12+11:00",
+  "teams"=>
+   [{"id"=>"PW71NHW",
+     "type"=>"team_reference",
+     "summary"=>"Notifications",
+     "self"=>"https://api.pagerduty.com/teams/PW71NHW",
+     "html_url"=>"https://rea-cobra.pagerduty.com/teams/PW71NHW"}],
+  "incident_urgency_rule"=>{"type"=>"constant", "urgency"=>"low"},
+  "scheduled_actions"=>[],
+  "support_hours"=>nil,
+  "escalation_policy"=>
+   {"id"=>"PLM8XKE",
+    "type"=>"escalation_policy_reference",
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+    "summary"=>"Notifications Team - Melbourne and Xi'an business hours",
+    "self"=>"https://api.pagerduty.com/escalation_policies/PLM8XKE",
+    "html_url"=>"https://rea-cobra.pagerduty.com/escalation_policies/PLM8XKE"},
+  "addons"=>[],
+  "privilege"=>nil,
+  "alert_creation"=>"create_alerts_and_incidents",
+  "integrations"=>
+   [{"id"=>"P4ARNJX",
+     "type"=>"event_transformer_api_inbound_integration_reference",
+     "summary"=>"Amazon Cloudwatch",
+     "self"=>"https://api.pagerduty.com/services/PDW2EKQ/integrations/P4ARNJX",
+     "html_url"=>"https://rea-cobra.pagerduty.com/services/PDW2EKQ/integrations/P4ARNJX"}],
+  "type"=>"service",
+  "summary"=>"AAP Buildkite Agent Cluster",
+  "self"=>"https://api.pagerduty.com/services/PDW2EKQ",
+  "html_url"=>"https://rea-cobra.pagerduty.com/services/PDW2EKQ"},
+ {"id"=>"PWF5OZX",
+  "name"=>"AAP CDN",
+  "description"=>"https://community.rea-group.com/docs/DOC-52428",
+  "auto_resolve_timeout"=>nil,
+  "acknowledgement_timeout"=>1800,
+  "created_at"=>"2016-05-24T17:03:46+10:00",
+  "status"=>"active",
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+  "last_incident_timestamp"=>"2016-05-24T17:09:58+10:00",
+  "teams"=>
+   [{"id"=>"PW71NHW",
+     "type"=>"team_reference",
+     "summary"=>"Notifications",
+     "self"=>"https://api.pagerduty.com/teams/PW71NHW",
+     "html_url"=>"https://rea-cobra.pagerduty.com/teams/PW71NHW"}],
+  "incident_urgency_rule"=>{"type"=>"constant", "urgency"=>"high"},
+  "scheduled_actions"=>[],
+  "support_hours"=>nil,
+  "escalation_policy"=>
+   {"id"=>"PLM8XKE",
+    "type"=>"escalation_policy_reference",
+    "summary"=>"Notifications Team - Melbourne and Xi'an business hours",
+    "self"=>"https://api.pagerduty.com/escalation_policies/PLM8XKE",
+    "html_url"=>"https://rea-cobra.pagerduty.com/escalation_policies/PLM8XKE"},
+  "addons"=>[],
+  "privilege"=>nil,
+  "alert_creation"=>"create_incidents",
+  "integrations"=>
+   [{"id"=>"PV0HL9G",
+     "type"=>"event_transformer_api_inbound_integration_reference",
+     "summary"=>"Amazon Cloudwatch",
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+     "self"=>"https://api.pagerduty.com/services/PWF5OZX/integrations/PV0HL9G",
+     "html_url"=>"https://rea-cobra.pagerduty.com/services/PWF5OZX/integrations/PV0HL9G"}],
+  "type"=>"service",
+  "summary"=>"AAP CDN",
+  "self"=>"https://api.pagerduty.com/services/PWF5OZX",
+  "html_url"=>"https://rea-cobra.pagerduty.com/services/PWF5OZX"},
+ {"id"=>"P526WBW",
+  "name"=>"AAP Splunk Certs",
+  "description"=>"Warnings for SSL certs for various AAP Splunk Forwarders",
+  "auto_resolve_timeout"=>nil,
+  "acknowledgement_timeout"=>1800,
+  "created_at"=>"2016-03-17T15:01:38+11:00",
+  "status"=>"active",
+  "last_incident_timestamp"=>"2017-08-14T15:22:08+10:00",
+  "teams"=>
+   [{"id"=>"PW71NHW",
+     "type"=>"team_reference",
+     "summary"=>"Notifications",
+     "self"=>"https://api.pagerduty.com/teams/PW71NHW",
+     "html_url"=>"https://rea-cobra.pagerduty.com/teams/PW71NHW"}],
+  "incident_urgency_rule"=>{"type"=>"constant", "urgency"=>"high"},
+  "scheduled_actions"=>[],
+  "support_hours"=>nil,
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+  "escalation_policy"=>
+   {"id"=>"PLM8XKE",
+    "type"=>"escalation_policy_reference",
+    "summary"=>"Notifications Team - Melbourne and Xi'an business hours",
+    "self"=>"https://api.pagerduty.com/escalation_policies/PLM8XKE",
+    "html_url"=>"https://rea-cobra.pagerduty.com/escalation_policies/PLM8XKE"},
+  "addons"=>[],
+  "privilege"=>nil,
+  "alert_creation"=>"create_incidents",
+  "integrations"=>
+   [{"id"=>"PXI65PI",
+     "type"=>"event_transformer_api_inbound_integration_reference",
+     "summary"=>"Amazon CloudWatch",
+     "self"=>"https://api.pagerduty.com/services/P526WBW/integrations/PXI65PI",
+     "html_url"=>"https://rea-cobra.pagerduty.com/services/P526WBW/integrations/PXI65PI"},
+    {"id"=>"P5ECWKZ",
+     "type"=>"generic_email_inbound_integration_reference",
+     "summary"=>"Email",
+     "self"=>"https://api.pagerduty.com/services/P526WBW/integrations/P5ECWKZ",
+     "html_url"=>"https://rea-cobra.pagerduty.com/services/P526WBW/integrations/P5ECWKZ"}],
+  "type"=>"service",
+  "summary"=>"AAP Splunk Certs",
+  "self"=>"https://api.pagerduty.com/services/P526WBW",
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+  "html_url"=>"https://rea-cobra.pagerduty.com/services/P526WBW"},
+ {"id"=>"PGIBWTH",
+  "name"=>"AAP SSL Monitor",
+  "description"=>"https://community.rea-group.com/docs/DOC-51217",
+  "auto_resolve_timeout"=>nil,
+  "acknowledgement_timeout"=>1800,
+  "created_at"=>"2016-02-24T16:17:23+11:00",
+  "status"=>"active",
+  "last_incident_timestamp"=>
+"2017-07-04T01:37:24+10:00",
+  "teams"=>
+   [{"id"=>"PW71NHW",
+     "type"=>"team_reference",
+     "summary"=>"Notifications",
+     "self"=>"https://api.pagerduty.com/teams/PW71NHW",
+     "html_url"=>"https://rea-cobra.pagerduty.com/teams/PW71NHW"}],
+  "incident_urgency_rule"=>{"type"=>"constant", "urgency"=>"high"},
+  "scheduled_actions"=>[],
+  "support_hours"=>nil,
+  "escalation_policy"=>
+   {"id"=>"PLM8XKE",
+    "type"=>"escalation_policy_reference",
+    "summary"=>"Notifications Team - Melbourne and Xi'an business hours",
+    "self"=>"https://api.pagerduty.com/escalation_policies/PLM8XKE",
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+    "html_url"=>"https://rea-cobra.pagerduty.com/escalation_policies/PLM8XKE"},
+  "addons"=>[],
+  "privilege"=>nil,
+  "alert_creation"=>"create_incidents",
+  "integrations"=>
+   [{"id"=>"PNPPIVM",
+     "type"=>"generic_events_api_inbound_integration_reference",
+     "summary"=>"SSL Audit (Certificate Warning)",
+     "self"=>"https://api.pagerduty.com/services/PGIBWTH/integrations/PNPPIVM",
+     "html_url"=>"https://rea-cobra.pagerduty.com/services/PGIBWTH/integrations/PNPPIVM"},
+    {"id"=>"P2S8B27",
+     "type"=>"event_transformer_api_inbound_integration_reference",
+     "summary"=>"SSL Audit (Did Not Run)",
+     "self"=>"https://api.pagerduty.com/services/PGIBWTH/integrations/P2S8B27",
+     "html_url"=>"https://rea-cobra.pagerduty.com/services/PGIBWTH/integrations/P2S8B27"}],
+  "type"=>"service",
+  "summary"=>"AAP SSL Monitor",
+  "self"=>"https://api.pagerduty.com/services/PGIBWTH",
+  "html_url"=>"https://rea-cobra.pagerduty.com/services/PGIBWTH"},
+ {"id"=>"PIXU25N",
+  "name"=>"Address Change Feeder - Production - CloudWatch",
+  "description"=>
+   "This is the pagerduty service for address-change-feeder production env which can fetch data from PSeeker and put record to Kinesis.",
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+  "auto_resolve_timeout"=>nil,
+  "acknowledgement_timeout"=>1800,
+  "created_at"=>"2016-05-26T15:00:36+10:00",
+  "status"=>
+"active",
+  "last_incident_timestamp"=>"2017-08-10T13:48:15+10:00",
+  "teams"=>
+   [{"id"=>"P5994QA",
+     "type"=>"team_reference",
+     "summary"=>"PSW",
+     "self"=>"https://api.pagerduty.com/teams/P5994QA",
+     "html_url"=>"https://rea-cobra.pagerduty.com/teams/P5994QA"}],
+  "incident_urgency_rule"=>
+   {"type"=>"use_support_hours",
+    "during_support_hours"=>{"type"=>"constant", "urgency"=>"high"},
+    "outside_support_hours"=>{"type"=>"constant", "urgency"=>"low"}},
+  "scheduled_actions"=>
+   [{"type"=>"urgency_change",
+     "at"=>{"type"=>"named_time", "name"=>"support_hours_start"},
+     "to_urgency"=>"high"}],
+  "support_hours"=>
+   {"type"=>"fixed_time_per_day",
+    "time_zone"=>"Australia/Melbourne",
+    "days_of_week"=>[1, 2, 3, 4, 5, 6],
+
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+    "start_time"=>"08:00:00",
+    "end_time"=>"22:00:00"},
+  "escalation_policy"=>
+   {"id"=>"P3SRURE",
+    "type"=>"escalation_policy_reference",
+    "summary"=>"PSW",
+    "self"=>"https://api.pagerduty.com/escalation_policies/P3SRURE",
+    "html_url"=>"https://rea-cobra.pagerduty.com/escalation_policies/P3SRURE"},
+  "addons"=>[],
+  "privilege"=>nil,
+  "alert_creation"=>"create_incidents",
+  "integrations"=>
+   [{"id"=>"P3JHAGZ",
+     "type"=>"event_transformer_api_inbound_integration_reference",
+     "summary"=>"Amazon Cloudwatch",
+     "self"=>"https://api.pagerduty.com/services/PIXU25N/integrations/P3JHAGZ",
+     "html_url"=>"https://rea-cobra.pagerduty.com/services/PIXU25N/integrations/P3JHAGZ"}],
+  "type"=>"service",
+  "summary"=>"Address Change Feeder - Production - CloudWatch",
+  "self"=>"https://api.pagerduty.com/services/PIXU25N",
+  "html_url"=>"https://rea-cobra.pagerduty.com/services/PIXU25N"},
+ {"id"=>"PFHGXQK",
+  "name"=>"Address Change Feeder - Staging - CloudWatch",
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+  "description"=>
+   "This is the pagerduty service for address-change-feeder staging env which can fetch data from PSeeker and put records to Kinesis stream.",
+  "auto_resolve_timeout"=>3600,
+  "acknowledgement_timeout"=>1800,
+  "created_at"=>"2016-05-17T16:12:38+10:00",
+  "status"=>"active",
+  "last_incident_timestamp"=>"2017-08-02T16:19:34+10:00",
+  "teams"=>
+   [{"id"=>"PHB8APU",
+     "type"=>"team_reference",
+     "summary"=>"Jade",
+     "self"=>"https://api.pagerduty.com/teams/PHB8APU",
+
+"html_url"=>"https://rea-cobra.pagerduty.com/teams/PHB8APU"}],
+  "incident_urgency_rule"=>{"type"=>"constant",
+ "urgency"=>"high"},
+  "scheduled_actions"=>[],
+  "support_hours"=>nil,
+  "escalation_policy"=>
+   {"id"=>"PEPEKKN",
+    "type"=>"escalation_policy_reference",
+    "summary"=>"Seller's Hub pre-release",
+    "self"=>"https://api.pagerduty.com/escalation_policies/PEPEKKN",
+    "html_url"=>"https://rea-cobra.pagerduty.com/escalation_policies/PEPEKKN"},
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+  "addons"=>[],
+  "privilege"=>nil,
+  "alert_creation"=>"create_incidents",
+  "integrations"=>
+   [{"id"=>"PCZBF1F",
+     "type"=>"event_transformer_api_inbound_integration_reference",
+     "summary"=>"Amazon Cloudwatch",
+     "self"=>"https://api.pagerduty.com/services/PFHGXQK/integrations/PCZBF1F",
+     "html_url"=>"https://rea-cobra.pagerduty.com/services/PFHGXQK/integrations/PCZBF1F"}],
+  "type"=>"service",
+  "summary"=>"Address Change Feeder - Staging - CloudWatch",
+  "self"=>"https://api.pagerduty.com/services/PFHGXQK",
+  "html_url"=>"https://rea-cobra.pagerduty.com/services/PFHGXQK"},
+ {"id"=>"PXH8N3P",
+  "name"=>"Address Service - E2E - Nagios",
+  "description"=>"https://community.rea-group.com/docs/DOC-27559",
+  "auto_resolve_timeout"=>nil,
+  "acknowledgement_timeout"=>3600,
+  "created_at"=>"2015-09-25T17:08:53+10:00",
+  "status"=>"active",
+  "last_incident_timestamp"=>nil,
+  "teams"=>
+   [{"id"=>"P5994QA"
+,
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+     "type"=>"team_reference",
+     "summary"=>"PSW",
+     "self"=>"https://api.pagerduty.com/teams/P5994QA",
+     "html_url"=>"https://rea-cobra.pagerduty.com/teams/P5994QA"}],
+  "incident_urgency_rule"=>
+   {"type"=>"use_support_hours",
+    "during_support_hours"=>{"type"=>"constant", "urgency"=>"high"},
+    "outside_support_hours"=>{"type"=>"constant", "urgency"=>"low"}},
+  "scheduled_actions"=>[],
+  "support_hours"=>
+   {"type"=>"fixed_time_per_day",
+    "time_zone"=>"Australia/Melbourne",
+    "days_of_week"=>[1, 2, 3, 4, 5],
+    "start_time"=>"09:00:00",
+    "end_time"=>"17:00:00"},
+  "escalation_policy"=>
+   {"id"=>"P3SRURE",
+    "type"=>"escalation_policy_reference",
+    "summary"=>"PSW",
+    "self"=>"https://api.pagerduty.com/escalation_policies/P3SRURE",
+    "html_url"=>"https://rea-cobra.pagerduty.com/escalation_policies/P3SRURE"},
+  "addons"=>[],
+  "privilege"=>nil,
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+  "alert_creation"=>"create_incidents",
+  "integrations"=>
+   [{"id"=>"PXCB771",
+     "type"=>"nagios_inbound_integration_reference",
+     "summary"=>"Nagios",
+     "self"=>"https://api.pagerduty.com/services/PXH8N3P/integrations/PXCB771",
+     "html_url"=>"https://rea-cobra.pagerduty.com/services/PXH8N3P/integrations/PXCB771"}],
+  "type"=>"service",
+  "summary"=>"Address Service - E2E - Nagios",
+  "self"=>"https://api.pagerduty.com/services/PXH8N3P",
+  "html_url"=>"https://rea-cobra.pagerduty.com/services/PXH8N3P"},
+ {"id"=>"P9MO7M9",
+  "name"=>"Address Service - Production - Nagios",
+  "description"=>"https://community.rea-group.com/docs/DOC-27559",
+  "auto_resolve_timeout"=>nil,
+  "acknowledgement_timeout"=>
+3600,
+  "created_at"=>"2015-09-25T17:09:49+10:00",
+  "status"=>"active",
+  "last_incident_timestamp"=>
+"2017-08-26T14:30:49+10:00",
+  "teams"=>
+   [{"id"=>"P5994QA",
+     "type"=>"team_reference",
+     "summary"=>"PSW",
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+     "self"=>"https://api.pagerduty.com/teams/P5994QA",
+     "html_url"=>"https://rea-cobra.pagerduty.com/teams/P5994QA"}],
+  "incident_urgency_rule"=>
+   {"type"=>"use_support_hours",
+    "during_support_hours"=>{"type"=>"constant", "urgency"=>"high"},
+    "outside_support_hours"=>{"type"=>"constant", "urgency"=>"low"}},
+  "scheduled_actions"=>[],
+  "support_hours"=>
+   {"type"=>"fixed_time_per_day",
+    "time_zone"=>"Australia/Melbourne",
+    "days_of_week"=>[1, 2, 3, 4, 5],
+    "start_time"=>"09:00:00",
+    "end_time"=>"17:00:00"},
+  "escalation_policy"=>
+   {"id"=>"P3SRURE",
+    "type"=>"escalation_policy_reference",
+    "summary"=>"PSW",
+    "self"=>"https://api.pagerduty.com/escalation_policies/P3SRURE",
+    "html_url"=>"https://rea-cobra.pagerduty.com/escalation_policies/P3SRURE"},
+  "addons"=>[],
+  "privilege"=>nil,
+  "alert_creation"=>"create_incidents",
+
+"integrations"=>
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+   [{"id"=>"P9HE52L",
+     "type"=>"nagios_inbound_integration_reference",
+     "summary"=>"Nagios",
+     "self"=>"https://api.pagerduty.com/services/P9MO7M9/integrations/P9HE52L",
+     "html_url"=>"https://rea-cobra.pagerduty.com/services/P9MO7M9/integrations/P9HE52L"}],
+  "type"=>"service",
+  "summary"=>"Address Service - Production - Nagios",
+  "self"=>"https://api.pagerduty.com/services/P9MO7M9",
+  "html_url"=>"https://rea-cobra.pagerduty.com/services/P9MO7M9"},
+ {"id"=>"PGVICE6",
+  "name"=>"Address Service - Production - New Relic",
+  "description"=>"https://community.rea-group.com/docs/DOC-27559",
+  "auto_resolve_timeout"=>nil,
+  "acknowledgement_timeout"=>3600,
+  "created_at"=>"2016-03-17T15:46:02+11:00",
+  "status"=>"active",
+  "last_incident_timestamp"=>"2017-03-24T16:58:58+11:00",
+  "teams"=>
+   [{"id"=>"P5994QA",
+     "type"=>"team_reference",
+     "summary"=>"PSW",
+     "self"=>"https://api.pagerduty.com/teams/P5994QA",
+     "html_url"=>"https://rea-cobra.pagerduty.com/teams/P5994QA"}],
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+  "incident_urgency_rule"=>
+   {"type"=>"use_support_hours",
+    "during_support_hours"=>{"type"=>"constant", "urgency"=>"high"},
+    "outside_support_hours"=>{"type"=>"constant", "urgency"=>"low"}},
+  "scheduled_actions"=>
+   [{"type"=>"urgency_change",
+     "at"=>{"type"=>"named_time", "name"=>"support_hours_start"},
+     "to_urgency"=>"high"}],
+  "support_hours"=>
+   {"type"=>"fixed_time_per_day",
+    "time_zone"=>"Australia/Melbourne",
+    "days_of_week"=>[1, 2, 3, 4, 5],
+    "start_time"
+=>"09:00:00",
+    "end_time"=>"17:00:00"},
+  "escalation_policy"=>
+   {"id"=>"P3SRURE",
+    "type"=>"escalation_policy_reference",
+    "summary"=>"PSW",
+    "self"=>"https://api.pagerduty.com/escalation_policies/P3SRURE",
+    "html_url"
+=>"https://rea-cobra.pagerduty.com/escalation_policies/P3SRURE"},
+  "addons"=>[],
+  "privilege"=>nil,
+  "alert_creation"=>"create_incidents",
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+  "integrations"=>
+   [{"id"=>"PFYPX0G",
+     "type"=>"generic_events_api_inbound_integration_reference",
+     "summary"=>"New Relic",
+     "self"=>"https://api.pagerduty.com/services/PGVICE6/integrations/PFYPX0G",
+     "html_url"=>"https://rea-cobra.pagerduty.com/services/PGVICE6/integrations/PFYPX0G"}],
+  "type"=>"service",
+  "summary"=>"Address Service - Production - New Relic",
+  "self"=>"https://api.pagerduty.com/services/PGVICE6",
+  "html_url"=>"https://rea-cobra.pagerduty.com/services/PGVICE6"},
+ {"id"=>"PU20M8U",
+  "name"=>"Agency Feeder - Production - Cloudwatch",
+  "description"=>"https://community.rea-group.com/docs/DOC-60577-1pager-agency-feeder",
+  "auto_resolve_timeout"=>nil,
+  "acknowledgement_timeout"=>1800,
+  "created_at"=>"2017-03-30T15:53:12+11:00",
+  "status"=>"active",
+  "last_incident_timestamp"
+=>"2017-06-01T11:13:29+10:00",
+  "teams"=>
+   [{"id"=>"P5994QA",
+     "type"=>"team_reference",
+     "summary"=>"PSW",
+     "self"=>"https://api.pagerduty.com/teams/P5994QA",
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+     "html_url"=>"https://rea-cobra.pagerduty.com/teams/P5994QA"}],
+  "incident_urgency_rule"=>
+   {"type"=>"use_support_hours",
+    "during_support_hours"=>{"type"=>"constant", "urgency"=>"high"},
+    "outside_support_hours"=>{"type"=>"constant", "urgency"=>"low"}},
+  "scheduled_actions"=>[],
+  "support_hours"=>
+   {"type"=>"fixed_time_per_day",
+    "time_zone"=>"Australia/Melbourne",
+    "days_of_week"=>[1, 2, 3, 4, 5],
+    "start_time"=>"09:00:00",
+    "end_time"=>"17:00:00"},
+  "escalation_policy"=>
+   {"id"=>"PE2RC0R",
+    "type"=>"escalation_policy_reference",
+    "summary"=>"Nobody Policy",
+    "self"=>"https://api.pagerduty.com/escalation_policies/PE2RC0R",
+    "html_url"=>"https://rea-cobra.pagerduty.com/escalation_policies/PE2RC0R"},
+  "addons"=>[],
+  "privilege"=>nil,
+  "alert_creation"=>"create_alerts_and_incidents",
+  "integrations"=>
+   [{"id"=>"PHP7AFB",
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+     "type"=>"event_transformer_api_inbound_integration_reference",
+     "summary"=>"Amazon Cloudwatch",
+     "self"=>"https://api.pagerduty.com/services/PU20M8U/integrations/PHP7AFB",
+     "html_url"=>"https://rea-cobra.pagerduty.com/services/PU20M8U/integrations/PHP7AFB"}],
+  "type"=>"service",
+  "summary"=>"Agency Feeder - Production - Cloudwatch",
+  "self"=>"https://api.pagerduty.com/services/PU20M8U",
+  "html_url"=>"https://rea-cobra.pagerduty.com/services/PU20M8U"},
+ {"id"
+=>"PJX6BZX",
+  "name"=>"Akamai Alerts - Production - Email",
+  "description"=>"Test service to test the alerting functionality provided by Akamai",
+  "auto_resolve_timeout"=>600,
+  "acknowledgement_timeout"=>1200,
+  "created_at"=>"2015-11-30T15:00:03+11:00",
+  "status"=>"active",
+  "last_incident_timestamp"=>"2017-08-28T11:06:36+10:00",
+  "teams"=>[],
+  "incident_urgency_rule"=>
+{"type"=>"constant", "urgency"=>"high"},
+  "scheduled_actions"=>[],
+  "support_hours"=>nil,
+  "escalation_policy"=>
+   {"id"=>"PG99EFW",
+    "type"=>"escalation_policy_reference",
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+    "summary"=>"Default",
+    "self"=>"https://api.pagerduty.com/escalation_policies/PG99EFW",
+    "html_url"=>"https://rea-cobra.pagerduty.com/escalation_policies/PG99EFW"},
+  "addons"=>[],
+  "privilege"=>nil,
+  "alert_creation"=>"create_incidents",
+  "integrations"=>
+   [{"id"=>"P56SI2T",
+     "type"=>"generic_email_inbound_integration_reference",
+     "summary"=>"Email",
+     "self"=>"https://api.pagerduty.com/services/PJX6BZX/integrations/P56SI2T",
+     "html_url"=>"https://rea-cobra.pagerduty.com/services/PJX6BZX/integrations/P56SI2T"}],
+  "type"=>"service",
+  "summary"=>"Akamai Alerts - Production - Email",
+  "self"=>"https://api.pagerduty.com/services/PJX6BZX",
+  "html_url"=>"https://rea-cobra.pagerduty.com/services/PJX6BZX"},
+ {"id"=>"PBN4F7Q",
+  "name"=>"Akamai Logs - Production - Nagios",
+  "description"=>"https://community.rea-group.com/docs/DOC-26294",
+  "auto_resolve_timeout"=>nil,
+  "acknowledgement_timeout"=>3600,
+  "created_at"=>
+"2015-10-09T09:56:42+11:00",
+  "status"=>"active",
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+  "last_incident_timestamp"=>"2017-04-20T08:26:49+10:00",
+  "teams"=>
+   [{"id"=>"PXT501L",
+     "type"=>"team_reference",
+     "summary"=>"Group Technology - GDE",
+     "self"=>"https://api.pagerduty.com/teams/PXT501L",
+     "html_url"=>"https://rea-cobra.pagerduty.com/teams/PXT501L"}],
+  "incident_urgency_rule"=>
+   {"type"=>"use_support_hours",
+    "during_support_hours"=>{"type"=>"constant", "urgency"=>"high"},
+    "outside_support_hours"=>{"type"=>"constant", "urgency"=>"low"}},
+  "scheduled_actions"=>
+   [{"type"=>"urgency_change",
+     "at"=>{"type"=>"named_time", "name"=>"support_hours_start"},
+     "to_urgency"=>"high"}],
+  "support_hours"=>
+   {"type"=>"fixed_time_per_day",
+    "time_zone"=>"Australia/Melbourne",
+    "days_of_week"=>[1, 2, 3, 4, 5],
+    "start_time"=>"09:00:00",
+    "end_time"=>"17:00:00"},
+  "escalation_policy"=>
+   {"id"=>"PWTWJK2",
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+    "type"=>"escalation_policy_reference",
+    "summary"=>"Group Technology - GDE",
+    "self"=>"https://api.pagerduty.com/escalation_policies/PWTWJK2",
+    "html_url"=>"https://rea-cobra.pagerduty.com/escalation_policies/PWTWJK2"},
+  "addons"=>[],
+  "privilege"=>nil,
+  "alert_creation"=>"create_alerts_and_incidents",
+  "integrations"=>
+   [{"id"=>"P2XMTIS",
+     "type"=>"nagios_inbound_integration_reference",
+     "summary"=>"Nagios",
+     "self"=>"https://api.pagerduty.com/services/PBN4F7Q/integrations/P2XMTIS",
+     "html_url"=>
+"https://rea-cobra.pagerduty.com/services/PBN4F7Q/integrations/P2XMTIS"}],
+  "type"=>"service",
+  "summary"=>"Akamai Logs - Production - Nagios",
+  "self"=>"https://api.pagerduty.com/services/PBN4F7Q",
+  "html_url"=>"https://rea-cobra.pagerduty.com/services/PBN4F7Q"},
+ {"id"=>"PK6YYSD",
+  "name"=>"Akamai Regression Tests - Production - API",
+  "description"=>"decommissioned - replaced to Slack alert instead",
+  "auto_resolve_timeout"=>nil,
+  "acknowledgement_timeout"=>3600,
+  "created_at"=>"2015-10-09T14:34:11+11:00",
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+  "status"=>"disabled",
+  "last_incident_timestamp"=>"2016-12-23T12:16:22+11:00",
+  "teams"=>
+   [{"id"=>"P5994QA",
+     "type"=>"team_reference",
+     "summary"=>"PSW",
+     "self"=>"https://api.pagerduty.com/teams/P5994QA",
+     "html_url"=>"https://rea-cobra.pagerduty.com/teams/P5994QA"}],
+  "incident_urgency_rule"=>
+   {"type"=>"use_support_hours",
+    "during_support_hours"=>{"type"=>"constant", "urgency"=>"high"},
+    "outside_support_hours"=>{"type"=>"constant", "urgency"=>"low"}},
+  "scheduled_actions"=>
+   [{"type"=>"urgency_change",
+     "at"=>{"type"=>"named_time", "name"=>"support_hours_start"},
+     "to_urgency"=>"high"}],
+  "support_hours"=>
+   {"type"=>"fixed_time_per_day",
+    "time_zone"=>"Australia/Melbourne",
+    "days_of_week"=>[1, 2, 3, 4, 5],
+    "start_time"=>"09:00:00",
+    "end_time"=>"17:00:00"},
+  "escalation_policy"=>
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+   {"id"=>"P3SRURE",
+    "type"=>"escalation_policy_reference",
+    "summary"=>"PSW",
+    "self"=>
+"https://api.pagerduty.com/escalation_policies/P3SRURE",
+    "html_url"=>"https://rea-cobra.pagerduty.com/escalation_policies/P3SRURE"},
+  "addons"=>[],
+  "privilege"=>nil,
+  "alert_creation"=>"create_incidents",
+  "integrations"=>
+   [{"id"=>"PC73KXD",
+     "type"=>"generic_events_api_inbound_integration_reference",
+     "summary"=>"Generic API",
+     "self"=>"https://api.pagerduty.com/services/PK6YYSD/integrations/PC73KXD",
+     "html_url"=>"https://rea-cobra.pagerduty.com/services/PK6YYSD/integrations/PC73KXD"}],
+  "type"=>"service",
+  "summary"=>"Akamai Regression Tests - Production - API",
+  "self"=>"https://api.pagerduty.com/services/PK6YYSD",
+  "html_url"=>"https://rea-cobra.pagerduty.com/services/PK6YYSD"},
+ {"id"=>"P95609X",
+  "name"=>"AlertsDB - E2E - Nagios",
+  "description"=>"alertsdb01.e2e",
+  "auto_resolve_timeout"=>nil,
+  "acknowledgement_timeout"=>86400,
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+  "created_at"=>"2017-04-27T10:25:39+10:00",
+  "status"=>"active",
+  "last_incident_timestamp"=>nil,
+  "teams"=>
+   [{"id"=>"PW71NHW",
+     "type"=>"team_reference",
+     "summary"=>"Notifications",
+     "self"=>"https://api.pagerduty.com/teams/PW71NHW",
+     "html_url"=>"https://rea-cobra.pagerduty.com/teams/PW71NHW"}],
+  "incident_urgency_rule"=>{"type"=>"constant", "urgency"=>"low"},
+  "scheduled_actions"
+=>[],
+  "support_hours"=>nil,
+  "escalation_policy"=>
+   {"id"=>"PLM8XKE",
+    "type"=>"escalation_policy_reference",
+    "summary"=>"Notifications Team - Melbourne and Xi'an business hours",
+    "self"=>"https://api.pagerduty.com/escalation_policies/PLM8XKE",
+    "html_url"=>"https://rea-cobra.pagerduty.com/escalation_policies/PLM8XKE"},
+  "addons"=>[],
+  "privilege"=>nil,
+  "alert_creation"=>"create_alerts_and_incidents",
+  "integrations"=>
+   [{"id"=>"PBKRRF2",
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+     "type"=>"nagios_inbound_integration_reference",
+     "summary"=>"Nagios",
+     "self"=>"https://api.pagerduty.com/services/P95609X/integrations/PBKRRF2",
+     "html_url"=>"https://rea-cobra.pagerduty.com/services/P95609X/integrations/PBKRRF2"}],
+  "type"=>"service",
+  "summary"=>"AlertsDB - E2E - Nagios",
+  "self"=>"https://api.pagerduty.com/services/P95609X",
+  "html_url"=>"https://rea-cobra.pagerduty.com/services/P95609X"},
+ {"id"=>"PERZSKG",
+  "name"=>"AlertsDB - Prod - Nagios",
+  "description"=>"alertsdb[01-02].eqx",
+  "auto_resolve_timeout"=>14400,
+  "acknowledgement_timeout"=>1800,
+  "created_at"=>"2016-10-07T15:50:37+11:00",
+  "status"=>"active",
+  "last_incident_timestamp"=>"2016-12-16T11:59:20+11:00",
+  "teams"=>
+   [{"id"=>"PW71NHW",
+     "type"=>"team_reference",
+     "summary"=>"Notifications",
+     "self"=>"https://api.pagerduty.com/teams/PW71NHW",
+     "html_url"=>"https://rea-cobra.pagerduty.com/teams/PW71NHW"}],
+  "incident_urgency_rule"=>
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+   {"type"=>"use_support_hours",
+    "during_support_hours"=>{"type"=>"constant", "urgency"=>"high"},
+    "outside_support_hours"=>{"type"=>"constant"
+, "urgency"=>"low"}},
+  "scheduled_actions"=>
+   [{"type"=>"urgency_change",
+     "at"=>{"type"=>"named_time", "name"=>"support_hours_start"},
+     "to_urgency"=>"high"}],
+  "support_hours"=>
+   {"type"=>"fixed_time_per_day",
+    "time_zone"=>"Australia/Melbourne",
+    "days_of_week"=>[1, 2, 3, 4, 5],
+    "start_time"=>"08:00:00",
+    "end_time"=>"22:00:00"},
+  "escalation_policy"=>
+   {"id"=>"PVF74US",
+    "type"=>"escalation_policy_reference",
+    "summary"=>"Notifications Team - With AH Support",
+    "self"=>"https://api.pagerduty.com/escalation_policies/PVF74US",
+    "html_url"=>"https://rea-cobra.pagerduty.com/escalation_policies/PVF74US"},
+  "addons"=>[],
+  "privilege"=>nil,
+  "alert_creation"=>"create_incidents",
+  "integrations"=>
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+   [{"id"=>"PM3VH7D",
+     "type"=>"nagios_inbound_integration_reference",
+     "summary"=>"Nagios",
+     "self"=>"https://api.pagerduty.com/services/PERZSKG/integrations/PM3VH7D",
+     "html_url"=>"https://rea-cobra.pagerduty.com/services/PERZSKG/integrations/PM3VH7D"}],
+  "type"=>"service",
+  "summary"=>"AlertsDB - Prod - Nagios",
+  "self"=>"https://api.pagerduty.com/services/PERZSKG",
+  "html_url"=>"https://rea-cobra.pagerduty.com/services/PERZSKG"},
+ {"id"=>"P0GWPZG",
+  "name"=>"Android - Crash reporting",
+  "description"=>nil,
+  "auto_resolve_timeout"=>nil,
+  "acknowledgement_timeout"=>1800,
+  "created_at"=>"2016-11-07T14:48:32+11:00",
+  "status"=>"active",
+  "last_incident_timestamp"=>
+"2017-09-04T12:18:30+10:00",
+  "teams"=>
+   [{"id"=>"PFYPA4Q",
+     "type"=>"team_reference",
+     "summary"=>"Apps and Personalisation",
+     "self"=>"https://api.pagerduty.com/teams/PFYPA4Q",
+     "html_url"=>"https://rea-cobra.pagerduty.com/teams/PFYPA4Q"}],
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+  "incident_urgency_rule"=>
+   {"type"=>"use_support_hours",
+    "during_support_hours"=>{"type"=>"constant", "urgency"=>"high"},
+    "outside_support_hours"=>{"type"=>"constant", "urgency"=>"low"}},
+  "scheduled_actions"=>
+   [{"type"=>"urgency_change",
+     "at"=>{"type"=>"named_time", "name"=>"support_hours_start"},
+     "to_urgency"=>"high"}],
+  "support_hours"=>
+   {"type"=>"fixed_time_per_day",
+    "time_zone"=>"Australia/Melbourne",
+    "days_of_week"=>[1, 2, 3, 4, 5],
+    "start_time"=>"09:00:00",
+    "end_time"=>"17:00:00"},
+  "escalation_policy"=>
+   {"id"=>"PE3I1M5",
+    "type"=>"escalation_policy_reference",
+    "summary"=>"AAP-Android",
+    "self"=>"https://api.pagerduty.com/escalation_policies/PE3I1M5",
+    "html_url"=>"https://rea-cobra.pagerduty.com/escalation_policies/PE3I1M5"},
+  "addons"=>[],
+  "privilege"=>nil,
+  "alert_creation"=>"create_incidents",
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+  "integrations"=>
+   [{"id"=>"PTS5O9W",
+     "type"=>"generic_events_api_inbound_integration_reference",
+     "summary"=>"Fabric",
+     "self"=>"https://api.pagerduty.com/services/P0GWPZG/integrations/PTS5O9W",
+     "html_url"=>"https://rea-cobra.pagerduty.com/services/P0GWPZG/integrations/PTS5O9W"}],
+  "type"=>"service",
+  "summary"=>"Android - Crash reporting",
+  "self"=>"https://api.pagerduty.com/services/P0GWPZG",
+  "html_url"=>"https://rea-cobra.pagerduty.com/services/P0GWPZG"},
+ {"id"
+=>"PIHRZVA",
+  "name"=>"Angus test",
+  "description"=>nil,
+  "auto_resolve_timeout"=>nil,
+  "acknowledgement_timeout"=>1800,
+  "created_at"=>"2017-06-07T09:47:28+10:00",
+  "status"=>"active",
+  "last_incident_timestamp"=>"2017-07-24T14:03:59+10:00",
+  "teams"=>
+   [{"id"=>"P5994QA",
+     "type"=>"team_reference",
+     "summary"=>"PSW",
+     "self"=>"https://api.pagerduty.com/teams/P5994QA",
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+     "html_url"=>"https://rea-cobra.pagerduty.com/teams/P5994QA"}],
+  "incident_urgency_rule"=>{"type"=>"constant", "urgency"=>"high"},
+  "scheduled_actions"=>[],
+  "support_hours"=>nil,
+  "escalation_policy"=>
+   {"id"=>"P6CJMN1",
+    "type"=>"escalation_policy_reference",
+    "summary"=>"All Angus all the time",
+    "self"=>"https://api.pagerduty.com/escalation_policies/P6CJMN1",
+    "html_url"=>"https://rea-cobra.pagerduty.com/escalation_policies/P6CJMN1"},
+  "addons"=>[],
+  "privilege"=>nil,
+  "alert_creation"=>"create_alerts_and_incidents",
+  "integrations"=>
+   [{"id"=>"PAPYUM3",
+     "type"=>"event_transformer_api_inbound_integration_reference",
+     "summary"=>"Amazon Cloudwatch",
+     "self"=>"https://api.pagerduty.com/services/PIHRZVA/integrations/PAPYUM3",
+     "html_url"=>"https://rea-cobra.pagerduty.com/services/PIHRZVA/integrations/PAPYUM3"}],
+  "type"=>"service",
+  "summary"=>"Angus test",
+  "self"=>"https://api.pagerduty.com/services/PIHRZVA",
+  "html_url"=>"https://rea-cobra.pagerduty.com/services/PIHRZVA"},
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+ {"id"=>"P5CPRH3",
+  "name"=>"Atlas - E2E - Nagios",
+  "description"=>"https://git.realestate.com.au/locations/atlas/wiki/Troubleshooting-Guide",
+  "auto_resolve_timeout"=>nil,
+  "acknowledgement_timeout"=>nil,
+  "created_at"=>"2015-09-25T18:02:01+10:00",
+  "status"=>"active",
+  "last_incident_timestamp"=>"2017-06-09T16:50:08+10:00",
+  "teams"=>
+   [{"id"=>"PNJXZ7F",
+     "type"=>"team_reference",
+     "summary"=>"Listings Management",
+     "self"=>"https://api.pagerduty.com/teams/PNJXZ7F",
+     "html_url"=>"https://rea-cobra.pagerduty.com/teams/PNJXZ7F"}],
+  "incident_urgency_rule"=>
+   {"type"=>"use_support_hours",
+    "during_support_hours"=>{"type"=>"constant", "urgency"=>"high"},
+    "outside_support_hours"=>{"type"=>"constant", "urgency"=>"low"}},
+  "scheduled_actions"=>
+   [{"type"=>"urgency_change",
+     "at"=>{"type"=>"named_time", "name"=>"support_hours_start"},
+     "to_urgency"=>"high"}],
+  "support_hours"=>
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+   {"type"=>"fixed_time_per_day",
+    "time_zone"=>"Australia/Melbourne",
+    "days_of_week"=>[1, 2, 3, 4, 5],
+
+"start_time"=>"09:00:00",
+    "end_time"=>"17:00:00"},
+  "escalation_policy"=>
+   {"id"=>"PUY6EY6",
+    "type"=>"escalation_policy_reference",
+    "summary"=>"Listings Management - BH",
+    "self"=>"https://api.pagerduty.com/escalation_policies/PUY6EY6",
+    "html_url"=>"https://rea-cobra.pagerduty.com/escalation_policies/PUY6EY6"},
+  "addons"=>[],
+  "privilege"=>nil,
+  "alert_creation"=>"create_incidents",
+  "integrations"=>
+   [{"id"=>"P2Y0HCG",
+     "type"=>"nagios_inbound_integration_reference",
+     "summary"=>"Nagios",
+     "self"=>"https://api.pagerduty.com/services/P5CPRH3/integrations/P2Y0HCG",
+     "html_url"=>"https://rea-cobra.pagerduty.com/services/P5CPRH3/integrations/P2Y0HCG"}],
+  "type"=>"service",
+  "summary"=>"Atlas - E2E - Nagios",
+  "self"=>"https://api.pagerduty.com/services/P5CPRH3",
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+  "html_url"=>"https://rea-cobra.pagerduty.com/services/P5CPRH3"},
+ {"id"=>"PZSI68F",
+  "name"=>"Atlas - Production - Nagios",
+  "description"=>"https://git.realestate.com.au/locations/atlas/wiki/Troubleshooting-Guide",
+  "auto_resolve_timeout"=>nil,
+  "acknowledgement_timeout"=>3600,
+  "created_at"=>"2015-09-25T18:02:58+10:00",
+  "status"=>"active",
+  "last_incident_timestamp"=>"2016-02-24T11:07:54+11:00",
+  "teams"=>
+   [{"id"=>"PNJXZ7F",
+     "type"=>"team_reference",
+     "summary"=>"Listings Management",
+     "self"=>"https://api.pagerduty.com/teams/PNJXZ7F",
+     "html_url"=>"https://rea-cobra.pagerduty.com/teams/PNJXZ7F"}],
+
+  "incident_urgency_rule"=>
+   {"type"=>"use_support_hours",
+    "during_support_hours"=>{"type"=>"constant", "urgency"=>"high"},
+    "outside_support_hours"=>{"type"=>"constant", "urgency"=>"low"}},
+  "scheduled_actions"=>[],
+  "support_hours"=>
+   {"type"=>"fixed_time_per_day",
+    "time_zone"=>"Australia/Melbourne",
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+    "days_of_week"=>[1, 2, 3, 4, 5],
+    "start_time"=>"09:00:00",
+    "end_time"=>"17:00:00"},
+  "escalation_policy"=>
+   {"id"=>"PUY6EY6",
+    "type"=>"escalation_policy_reference",
+    "summary"=>"Listings Management - BH",
+    "self"=>"https://api.pagerduty.com/escalation_policies/PUY6EY6",
+    "html_url"=>"https://rea-cobra.pagerduty.com/escalation_policies/PUY6EY6"},
+  "addons"=>[],
+  "privilege"=>nil,
+  "alert_creation"=>"create_incidents",
+  "integrations"=>
+   [{"id"=>"PTQDEU7",
+     "type"=>"nagios_inbound_integration_reference",
+     "summary"=>"Nagios",
+     "self"=>"https://api.pagerduty.com/services/PZSI68F/integrations/PTQDEU7",
+     "html_url"=>"https://rea-cobra.pagerduty.com/services/PZSI68F/integrations/PTQDEU7"}],
+  "type"=>"service",
+  "summary"=>"Atlas - Production - Nagios",
+  "self"=>"https://api.pagerduty.com/services/PZSI68F",
+  "html_url"=>"https://rea-cobra.pagerduty.com/services/PZSI68F"},
+ {"id"=>"PXU977P",
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+  "name"=>"Auction Results - E2E - Cloudwatch",
+  "description"=>"https://community.rea-group.com/docs/DOC-47034",
+  "auto_resolve_timeout"=>nil,
+  "acknowledgement_timeout"=>3600,
+  "created_at"=>
+"2015-10-13T13:12:02+11:00",
+  "status"=>"active",
+  "last_incident_timestamp"=>"2016-02-01T06:42:01+11:00",
+  "teams"=>
+   [{"id"=>"P5994QA",
+     "type"=>"team_reference",
+     "summary"=>"PSW",
+     "self"=>"https://api.pagerduty.com/teams/P5994QA",
+     "html_url"=>"https://rea-cobra.pagerduty.com/teams/P5994QA"}],
+  "incident_urgency_rule"=>
+   {"type"=>"use_support_hours",
+    "during_support_hours"=>{"type"=>"constant", "urgency"=>"high"},
+    "outside_support_hours"=>{"type"=>"constant", "urgency"=>"low"}},
+  "scheduled_actions"=>
+   [{"type"=>"urgency_change",
+     "at"=>{"type"=>"named_time", "name"=>"support_hours_start"},
+     "to_urgency"=>"high"}],
+  "support_hours"=>
+   {"type"=>"fixed_time_per_day",
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+    "time_zone"=>"Australia/Melbourne",
+    "days_of_week"=>[1, 2, 3, 4, 5],
+    "start_time"=>"09:00:00",
+    "end_time"=>"17:00:00"},
+  "escalation_policy"=>
+   {"id"=>"P3SRURE",
+    "type"=>"escalation_policy_reference",
+    "summary"=>"PSW",
+    "self"=>"https://api.pagerduty.com/escalation_policies/P3SRURE",
+    "html_url"=>"https://rea-cobra.pagerduty.com/escalation_policies/P3SRURE"},
+  "addons"=>[],
+  "privilege"=>nil,
+  "alert_creation"=>"create_incidents",
+  "integrations"=>
+   [{"id"=>"PI2CZIP",
+     "type"=>"event_transformer_api_inbound_integration_reference",
+     "summary"=>"Amazon CloudWatch",
+     "self"=>"https://api.pagerduty.com/services/PXU977P/integrations/PI2CZIP",
+     "html_url"=>
+"https://rea-cobra.pagerduty.com/services/PXU977P/integrations/PI2CZIP"}],
+  "type"=>"service",
+  "summary"=>"Auction Results - E2E - Cloudwatch",
+  "self"=>"https://api.pagerduty.com/services/PXU977P",
+  "html_url"=>"https://rea-cobra.pagerduty.com/services/PXU977P"},
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+ {"id"=>"PFOTIWR",
+  "name"=>"Auction Results - E2E - Nagios",
+  "description"=>"https://community.rea-group.com/docs/DOC-47034",
+  "auto_resolve_timeout"=>nil,
+  "acknowledgement_timeout"=>3600,
+  "created_at"=>"2015-09-25T18:04:35+10:00",
+  "status"=>"active",
+  "last_incident_timestamp"=>nil,
+  "teams"=>
+   [{"id"=>"P5994QA",
+     "type"=>"team_reference",
+     "summary"=>"PSW",
+     "self"=>"https://api.pagerduty.com/teams/P5994QA",
+     "html_url"=>"https://rea-cobra.pagerduty.com/teams/P5994QA"}],
+  "incident_urgency_rule"=>
+   {"type"=>"use_support_hours",
+    "during_support_hours"=>{"type"=>"constant", "urgency"=>"high"},
+    "outside_support_hours"=>{"type"=>"constant", "urgency"=>"low"}},
+  "scheduled_actions"=>
+   [{"type"=>"urgency_change",
+     "at"=>{"type"=>"named_time", "name"=>"support_hours_start"},
+     "to_urgency"=>"high"}],
+  "support_hours"=>
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+   {"type"=>"fixed_time_per_day",
+    "time_zone"=>"Australia/Melbourne",
+    "days_of_week"=>[1, 2, 3, 4, 5],
+    "start_time"=>"09:00:00",
+    "end_time"=>"17:00:00"},
+  "escalation_policy"=>
+   {"id"=>"P3SRURE",
+    "type"=>"escalation_policy_reference",
+    "summary"=>"PSW",
+    "self"=>"https://api.pagerduty.com/escalation_policies/P3SRURE",
+    "html_url"=>"https://rea-cobra.pagerduty.com/escalation_policies/P3SRURE"},
+  "addons"=>
+[],
+  "privilege"=>nil,
+  "alert_creation"=>"create_incidents",
+  "integrations"=>
+   [{"id"=>"P7G8ZJF",
+     "type"=>"nagios_inbound_integration_reference",
+     "summary"=>"Nagios",
+     "self"=>"https://api.pagerduty.com/services/PFOTIWR/integrations/P7G8ZJF",
+     "html_url"=>"https://rea-cobra.pagerduty.com/services/PFOTIWR/integrations/P7G8ZJF"}],
+  "type"=>"service",
+  "summary"=>"Auction Results - E2E - Nagios",
+  "self"=>"https://api.pagerduty.com/services/PFOTIWR",
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+  "html_url"=>"https://rea-cobra.pagerduty.com/services/PFOTIWR"},
+ {"id"=>"PDPHJUL",
+  "name"=>"Auction Results - Production - Cloudwatch",
+  "description"=>"https://community.rea-group.com/docs/DOC-47034",
+  "auto_resolve_timeout"=>nil,
+
+"acknowledgement_timeout"=>3600,
+  "created_at"=>"2015-10-13T13:14:36+11:00",
+  "status"=>"active",
+  "last_incident_timestamp"=>"2017-01-10T18:19:38+11:00",
+  "teams"=>
+   [{"id"=>"P5994QA",
+     "type"=>"team_reference",
+     "summary"=>"PSW",
+     "self"=>"https://api.pagerduty.com/teams/P5994QA",
+     "html_url"=>"https://rea-cobra.pagerduty.com/teams/P5994QA"}],
+  "incident_urgency_rule"=>
+   {"type"=>"use_support_hours",
+    "during_support_hours"=>{"type"=>"constant", "urgency"=>"high"},
+    "outside_support_hours"=>{"type"=>"constant", "urgency"=>"low"}},
+  "scheduled_actions"=>
+   [{"type"=>"urgency_change",
+     "at"=>{"type"=>"named_time", "name"=>"support_hours_start"},
+     "to_urgency"=>"high"}
+],
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+  "support_hours"=>
+   {"type"=>"fixed_time_per_day",
+    "time_zone"=>"Australia/Melbourne",
+    "days_of_week"=>[1, 2, 3, 4, 5, 6],
+    "start_time"=>"08:00:00",
+    "end_time"=>"22:00:00"},
+  "escalation_policy"=>
+   {"id"=>"P3SRURE",
+
+"type"=>"escalation_policy_reference",
+    "summary"=>"PSW",
+    "self"=>"https://api.pagerduty.com/escalation_policies/P3SRURE",
+    "html_url"=>"https://rea-cobra.pagerduty.com/escalation_policies/P3SRURE"},
+  "addons"=>[],
+  "privilege"=>nil,
+  "alert_creation"=>"create_incidents",
+  "integrations"=>
+   [{"id"=>"PX7FXE9",
+     "type"=>"event_transformer_api_inbound_integration_reference",
+     "summary"=>"Amazon CloudWatch",
+     "self"=>"https://api.pagerduty.com/services/PDPHJUL/integrations/PX7FXE9",
+     "html_url"=>"https://rea-cobra.pagerduty.com/services/PDPHJUL/integrations/PX7FXE9"}],
+  "type"=>"service",
+  "summary"=>"Auction Results - Production - Cloudwatch",
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+  "self"=>"https://api.pagerduty.com/services/PDPHJUL",
+  "html_url"=>"https://rea-cobra.pagerduty.com/services/PDPHJUL"},
+ {"id"=>"PUTWGSO",
+  "name"=>
+"Auction Results - Production - Nagios",
+  "description"=>"https://community.rea-group.com/docs/DOC-47034",
+  "auto_resolve_timeout"=>nil,
+  "acknowledgement_timeout"=>3600,
+  "created_at"=>"2015-09-25T18:05:52+10:00",
+  "status"=>"active",
+  "last_incident_timestamp"=>"2017-05-20T20:31:57+10:00",
+  "teams"=>
+   [{"id"=>"P5994QA",
+     "type"=>"team_reference",
+     "summary"=>"PSW",
+     "self"=>"https://api.pagerduty.com/teams/P5994QA",
+     "html_url"=>"https://rea-cobra.pagerduty.com/teams/P5994QA"}],
+  "incident_urgency_rule"=>
+   {"type"=>"use_support_hours",
+    "during_support_hours"=>{"type"=>"constant", "urgency"=>"high"},
+    "outside_support_hours"=>{"type"=>"constant", "urgency"=>"low"}},
+  "scheduled_actions"=>
+   [{"type"=>"urgency_change",
+     "at"=>{"type"=>"named_time", "name"=>"support_hours_start"},
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+     "to_urgency"=>"high"}],
+  "support_hours"=>
+   {"type"=>"fixed_time_per_day",
+    "time_zone"=>"Australia/Melbourne",
+    "days_of_week"=>[1, 2, 3, 4, 5, 6],
+    "start_time"=>"08:00:00",
+    "end_time"=>"22:00:00"},
+  "escalation_policy"=>
+   {"id"=>"P3SRURE",
+    "type"=>"escalation_policy_reference",
+    "summary"=>"PSW",
+    "self"=>"https://api.pagerduty.com/escalation_policies/P3SRURE",
+    "html_url"=>
+"https://rea-cobra.pagerduty.com/escalation_policies/P3SRURE"},
+  "addons"=>[],
+  "privilege"=>nil,
+  "alert_creation"=>"create_incidents",
+  "integrations"=>
+   [{"id"=>"PG4SZHU",
+     "type"=>"nagios_inbound_integration_reference",
+     "summary"=>"Nagios",
+     "self"=>"https://api.pagerduty.com/services/PUTWGSO/integrations/PG4SZHU",
+     "html_url"=>"https://rea-cobra.pagerduty.com/services/PUTWGSO/integrations/PG4SZHU"}],
+  "type"=>"service",
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+  "summary"=>"Auction Results - Production - Nagios",
+  "self"=>"https://api.pagerduty.com/services/PUTWGSO",
+  "html_url"=>"https://rea-cobra.pagerduty.com/services/PUTWGSO"},
+ {"id"=>"PR73NW3",
+  "name"=>"Auto Resolving Test Service",
+  "description"=>
+   "A low urgency service that will alert Nobody and will automatically resolve after 10 minutes.",
+  "auto_resolve_timeout"=>600,
+  "acknowledgement_timeout"=>600,
+  "created_at"=>"2016-03-02T01:46:39+11:00",
+  "status"=>"active",
+  "last_incident_timestamp"=>"2017-01-05T13:36:16+11:00",
+  "teams"=>[],
+  "incident_urgency_rule"=>{"type"=>"constant", "urgency"=>"low"},
+  "scheduled_actions"=>[],
+  "support_hours"=>nil,
+  "escalation_policy"=>
+   {"id"=>"PG99EFW",
+    "type"=>"escalation_policy_reference",
+    "summary"=>"Default",
+    "self"=>"https://api.pagerduty.com/escalation_policies/PG99EFW",
+    "html_url"=>"https://rea-cobra.pagerduty.com/escalation_policies/PG99EFW"},
+
+"addons"=>[]
+,
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+
+  "privilege"=>nil,
+  "alert_creation"=>"create_incidents",
+  "integrations"=>
+   [{"id"=>"P8F4RS1",
+     "type"=>"event_transformer_api_inbound_integration_reference",
+     "summary"=>"Amazon CloudWatch",
+     "self"=>"https://api.pagerduty.com/services/PR73NW3/integrations/P8F4RS1",
+     "html_url"=>"https://rea-cobra.pagerduty.com/services/PR73NW3/integrations/P8F4RS1"},
+    {"id"=>"PGHPH97",
+     "type"=>"generic_events_api_inbound_integration_reference",
+     "summary"=>"Test",
+     "self"=>"https://api.pagerduty.com/services/PR73NW3/integrations/PGHPH97",
+     "html_url"=>"https://rea-cobra.pagerduty.com/services/PR73NW3/integrations/PGHPH97"}],
+  "type"=>"service",
+  "summary"=>"Auto Resolving Test Service",
+  "self"=>"https://api.pagerduty.com/services/PR73NW3",
+  "html_url"=>"https://rea-cobra.pagerduty.com/services/PR73NW3"}]
+[2] pry(#<#<Class:0x000000024d7c48>>)>
+[3] pry(#<#<Class:0x000000024d7c48>>)>
+[4] pry(#<#<Class:0x000000024d7c48>>)>
+[5] pry(#<#<Class:0x000000024d7c48>>)>
+
+[6] pry(#<#<Class:0x000000024d7c48>>)>
+[7] pry(#<#<Class:0x000000024d7c48>>)>
+[8] pry(#<#<Class:0x000000024d7c48>>)>
+[9] pry(#<#<Class:0x000000024d7c48>>)>
+[10] pry(#<#<Class:0x000000024d7c48>>)>
+[11] pry(#<#<Class:0x000000024d7c48>>)>
+[12] pry(#<#<Class:0x000000024d7c48>>)>
+[13] pry(#<#<Class:0x000000024d7c48>>)>
+[14] pry(#<#<Class:0x000000024d7c48>>)>
+[15] pry(#<#<Class:0x000000024d7c48>>)>
+[16] pry(#<#<Class:0x000000024d7c48>>)>
+[17] pry(#<#<Class:0x000000024d7c48>>)>
+[18] pry(#<#<Class:0x000000024d7c48>>)>
+[19] pry(#<#<Class:0x000000024d7c48>>)>
+[20] pry(#<#<Class:0x000000024d7c48>>)>
+[21] pry(#<#<Class:0x000000024d7c48>>)>
+[22] pry(#<#<Class:0x000000024d7c48>>)>
+[23] pry(#<#<Class:0x000000024d7c48>>)> !!!
+Removing network reagrouppagerduty_default
+Volume ruby2.4-bundle-cache is external, skipping
+ ~/code/rea/cowbell/rea-group-pagerduty   master ●  fg
+fg: no current job
+ ✘  ~/code/rea/cowbell/rea-group-pagerduty   master ●  auto/dev-environment bin/pager_duty_ctl deploy
+Creating network "reagrouppagerduty_default" with the default driver
+
+From: /work/lib/pager_duty_ctl/cli.rb @ line 24 #<Class:0x0000000282f6c0>#execute:
+
+    23: def execute
+ => 24:   require "pry"; binding.pry
+    25:   PagerDutyCtl::PagerDutyApi::Service.new.create(config.to_h)
+    26: end
+
+[1] pry(#<#<Class:0x0000000282f6c0>>)> PagerDutyCtl::PagerDutyApi::Service.new.list_services("GDE Test service")
+
+From: /work/lib/pager_duty_ctl/api/client.rb @ line 16 PagerDutyCtl::PagerDutyApi::Client#get:
+
+    15: def get(path)
+ => 16:   require "pry"; binding.pry
+    17:   RestClient.get(full_uri_for(path), headers = client_config)
+    18: end
+
+[1] pry(#<PagerDutyCtl::PagerDutyApi::Client>)> full_uri_for(path)
+=> "https://api.pagerduty.com/services?time_zone=Australia/Melbourne&query=GDE Test service"
+[2] pry(#<PagerDutyCtl::PagerDutyApi::Client>)> exit
+=> [{"id"=>"PR3GQ17",
+  "name"=>"GDE Test service",
+  "description"=>"Testing",
+  "auto_resolve_timeout"=>14400,
+  "acknowledgement_timeout"=>1800,
+  "created_at"=>"2017-09-05T23:56:16+10:00",
+  "status"=>"active",
+  "last_incident_timestamp"=>nil,
+  "teams"=>
+   [{"id"=>"P31NW8W",
+     "type"=>"team_reference",
+     "summary"=>"luke-test-squad-1",
+     "self"=>"https://api.pagerduty.com/teams/P31NW8W",
+     "html_url"=>"https://rea-cobra.pagerduty.com/teams/P31NW8W"}],
+  "incident_urgency_rule"=>{"type"=>"constant", "urgency"=>"high"},
+  "scheduled_actions"=>[],
+  "support_hours"=>nil,
+  "escalation_policy"=>
+   {"id"=>"PO3264B",
+    "type"=>"escalation_policy_reference",
+    "summary"=>"luke-test-squad-1-escalation-policy",
+    "self"=>"https://api.pagerduty.com/escalation_policies/PO3264B",
+    "html_url"=>"https://rea-cobra.pagerduty.com/escalation_policies/PO3264B"},
+
+<page break> --- Press enter to continue ( q<enter> to break ) --- <page break>
+!!!
+  "addons"=>[],
+  "privilege"=>nil,
+  "alert_creation"=>"create_incidents",
+  "integrations"=>[],
+  "type"=>"service",
+  "summary"=>"GDE Test service",
+  "self"=>"https://api.pagerduty.com/services/PR3GQ17",
+  "html_url"=>"https://rea-cobra.pagerduty.com/services/PR3GQ17"}]

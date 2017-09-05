@@ -1,0 +1,16 @@
+Hi support.
+
+In testing some automation with the PagerDuty API I may have inadvertently deleted some services from the rea-cobra pagerduty account.
+
+The API key is "PagerDuty config-as-code testing" ••••••••••••••••s2KE
+
+The test I was running was supposed to create a service called "GDE Test service", see if the service could be found, and delete it. I've discovered that I was accidentally finding all services and deleting the first one in the list.
+
+I ran this and some other tests a number of times in the last 24 hours.
+
+Can you please tell me which, if any services, apart from ones called "GDE Test service", have been deleted using the above API key in the last 24 hours?
+
+Is it possible to undelete these?
+
+Thanks,
+Luke

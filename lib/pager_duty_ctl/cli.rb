@@ -1,7 +1,9 @@
 require "clamp"
+require "json"
 require "console_logger"
 require "pager_duty_ctl/config"
 require "pager_duty_ctl/version"
+require "pager_duty_ctl/api/service"
 
 module PagerDutyCtl
 
@@ -20,7 +22,8 @@ module PagerDutyCtl
       subcommand ["upsert", "deploy"], "Create/update pager config" do
 
         def execute
-          puts "Hi!"
+          service = PagerDutyCtl::PagerDutyApi::Service.new.create_or_update(config.service.to_h)
+          puts service
         end
 
       end

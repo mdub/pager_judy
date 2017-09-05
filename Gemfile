@@ -3,6 +3,7 @@ source "https://rubygems.org" do
   gem "config_hound", "~> 1.2"
   gem "config_mapper", "~> 1.4.1"
   gem "console_logger", "~> 1.0"
+  gem "rest-client"
 end
 
 group "development", "test" do

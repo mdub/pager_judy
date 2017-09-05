@@ -20,6 +20,17 @@ module PagerDutyCtl
 
       component :service do
 
+        attribute :name
+
+        attribute :description
+
+        component :escalation_policy do
+
+          attribute :id
+          attribute :type
+
+        end
+
       end
 
     end
