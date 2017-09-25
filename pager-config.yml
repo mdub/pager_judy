@@ -1,5 +1,0 @@
-service:
-  name: GDE Test service
-  description: Testing update some more
-  escalation_policy:
-    id: PO3264B
