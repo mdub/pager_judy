@@ -1,9 +1,0 @@
-#! /bin/bash -e
-#
-# Build Docker image
-
-cd $(dirname $0)/..
-
-echo "--- Building Docker image"
-
-docker build .

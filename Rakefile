@@ -1,9 +1,7 @@
-$LOAD_PATH << File.expand_path("../lib", __FILE__)
+#!/usr/bin/env rake
+# encoding: utf-8
 
-require 'yaml'
+task "default" => "spec"
 
-begin
-  require 'rspec/core/rake_task'
-  RSpec::Core::RakeTask.new(:spec)
-rescue LoadError
-end
+require 'rspec/core/rake_task'
+RSpec::Core::RakeTask.new(:spec)
