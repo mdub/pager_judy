@@ -21,8 +21,40 @@ module PagerDutyCtl
 
       subcommand "services", "Display services" do
 
-        def execute
-          puts YAML.dump(client.services)
+        self.default_subcommand = "summary"
+
+        subcommand "summary", "Show summary" do
+          def execute
+            client.services.each do |item|
+              puts "#{item.fetch("id")}: #{item.fetch("name")}"
+            end
+          end
+        end
+
+        subcommand "data", "Show full data" do
+          def execute
+            puts YAML.dump(client.services.to_a)
+          end
+        end
+
+      end
+
+      subcommand "teams", "Display teams" do
+
+        self.default_subcommand = "summary"
+
+        subcommand "summary", "Show summary" do
+          def execute
+            client.teams.each do |item|
+              puts "#{item.fetch("id")}: #{item.fetch("name")}"
+            end
+          end
+        end
+
+        subcommand "data", "Show full data" do
+          def execute
+            puts YAML.dump(client.teams.to_a)
+          end
         end
 
       end

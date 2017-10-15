@@ -20,8 +20,9 @@ module PagerDutyCtl
         Resource.new(api_key: api_key, uri: uri + path)
       end
 
-      def get
+      def get(query = nil)
         request = new_request
+        request.query = query if query
         response = HTTPI.get(request)
         if response.error?
           raise HttpError.new(request, response)

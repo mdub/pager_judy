@@ -1,3 +1,4 @@
+require "pager_duty_ctl/api/collection"
 require "pager_duty_ctl/api/resource"
 require "uri"
 
@@ -18,8 +19,16 @@ module PagerDutyCtl
         Resource.new(api_key: api_key, uri: base_uri)
       end
 
+      def collection(type)
+        Collection.new(root["/#{type}"], type)
+      end
+
       def services
-        root["/services"].get.fetch("services")
+        collection("services")
+      end
+
+      def teams
+        collection("teams")
       end
 
     end
