@@ -68,7 +68,7 @@ module PagerDutyCtl
       end
 
       def logger
-        @logger ||= ConsoleLogger.new(STDOUT, debug?)
+        @logger ||= ConsoleLogger.new(STDERR, debug?)
       end
 
     end
