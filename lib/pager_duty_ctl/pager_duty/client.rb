@@ -22,7 +22,17 @@ module PagerDutyCtl
         Resource.new(api_key: api_key, uri: base_uri + path)
       end
 
-      class Error < StandardError
+      class HttpError < StandardError
+
+        def initialize(request, response)
+          @request = request
+          @response = response
+          super("#{request.url} - #{response.headers.fetch("Status")}")
+        end
+
+        attr_reader :request
+        attr_reader :response
+
       end
 
       class Resource
@@ -39,7 +49,7 @@ module PagerDutyCtl
           request = new_request
           response = HTTPI.get(request)
           if response.error?
-            raise Error, response.headers["Status"]
+            raise HttpError.new(request, response)
           end
           response.body
         end
