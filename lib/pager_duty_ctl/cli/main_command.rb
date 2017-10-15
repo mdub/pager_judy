@@ -1,8 +1,8 @@
 require "clamp"
 require "console_logger"
-require "pager_duty_ctl/api/client"
 require "pager_duty_ctl/cli/collection_behaviour"
 require "pager_duty_ctl/version"
+require "pager_kit/client"
 
 module PagerDutyCtl
   module CLI
@@ -66,7 +66,7 @@ module PagerDutyCtl
       def client
         signal_error "no --api-key provided" unless api_key
         HTTPI.logger = logger
-        @client ||= PagerDutyCtl::API::Client.new(api_key)
+        @client ||= PagerKit::Client.new(api_key)
       end
 
       def logger
