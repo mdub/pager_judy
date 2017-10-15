@@ -19,6 +19,20 @@ module PagerDutyCtl
       option "--api-key", "KEY", "PagerDuty API key",
              :environment_variable => "PAGER_DUTY_API_KEY"
 
+      subcommand "schedules", "Display schedules" do
+
+        option %w[-q --query], "FILTER", "name filter"
+
+        include CollectionBehaviour
+
+        private
+
+        def collection
+          client.schedules.with(:query => query)
+        end
+
+      end
+
       subcommand "services", "Display services" do
 
         option %w[-q --query], "FILTER", "name filter"

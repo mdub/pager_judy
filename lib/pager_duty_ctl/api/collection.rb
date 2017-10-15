@@ -16,6 +16,7 @@ module PagerDutyCtl
       include Enumerable
 
       def with(more_options)
+        more_options = Hash[more_options.select { |_,v| v }]
         Collection.new(resource, key, options.merge(more_options))
       end
 

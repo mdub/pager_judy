@@ -23,6 +23,10 @@ module PagerDutyCtl
         Collection.new(root["/#{type}"], type)
       end
 
+      def schedules
+        collection("schedules")
+      end
+
       def services
         collection("services")
       end
