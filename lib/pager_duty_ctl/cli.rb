@@ -23,9 +23,11 @@ module PagerDutyCtl
 
         self.default_subcommand = "summary"
 
+        option %w[-q --query], "FILTER", "name filter"
+
         subcommand "summary", "Show summary" do
           def execute
-            client.services.each do |item|
+            collection.each do |item|
               puts "#{item.fetch("id")}: #{item.fetch("name")}"
             end
           end
@@ -33,8 +35,14 @@ module PagerDutyCtl
 
         subcommand "data", "Show full data" do
           def execute
-            puts YAML.dump(client.services.to_a)
+            puts YAML.dump(collection.to_a)
           end
+        end
+
+        private
+
+        def collection
+          client.services.with(:query => query)
         end
 
       end
@@ -43,9 +51,11 @@ module PagerDutyCtl
 
         self.default_subcommand = "summary"
 
+        option %w[-q --query], "FILTER", "name filter"
+
         subcommand "summary", "Show summary" do
           def execute
-            client.teams.each do |item|
+            collection.each do |item|
               puts "#{item.fetch("id")}: #{item.fetch("name")}"
             end
           end
@@ -53,8 +63,12 @@ module PagerDutyCtl
 
         subcommand "data", "Show full data" do
           def execute
-            puts YAML.dump(client.teams.to_a)
+            puts YAML.dump(collection.to_a)
           end
+        end
+
+        def collection
+          client.teams.with(:query => query)
         end
 
       end

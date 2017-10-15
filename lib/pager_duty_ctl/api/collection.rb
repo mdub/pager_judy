@@ -3,20 +3,26 @@ module PagerDutyCtl
 
     class Collection
 
-      def initialize(resource, key)
+      def initialize(resource, key, options = {})
         @resource = resource
         @key = key
+        @options = options
       end
 
       attr_reader :resource
       attr_reader :key
+      attr_reader :options
 
       include Enumerable
+
+      def with(more_options)
+        Collection.new(resource, key, options.merge(more_options))
+      end
 
       def each
         offset = 0
         loop do
-          data = resource.get(offset: offset, limit: 100)
+          data = resource.get(options.merge(offset: offset, limit: 100))
           data.fetch(key).each do |item|
             yield item
           end
