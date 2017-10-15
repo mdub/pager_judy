@@ -3,7 +3,7 @@ require "multi_json"
 require "uri"
 
 module PagerDutyCtl
-  module PagerDuty
+  module API
     class Client
 
       def initialize(api_key, base_uri: "https://api.pagerduty.com/")
