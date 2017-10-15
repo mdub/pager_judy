@@ -1,4 +1,4 @@
-require "yaml"
+require "pager_duty_ctl/cli/data_display"
 
 module PagerDutyCtl
   module CLI
@@ -21,8 +21,12 @@ module PagerDutyCtl
 
         target.subcommand ["data", "d"], "Full details" do
 
+          include DataDisplay
+
+          parameter "[EXPR]", "JMESPath expression"
+
           def execute
-            puts YAML.dump(collection.to_a)
+            puts display_data(collection.to_a, expr)
           end
 
         end
