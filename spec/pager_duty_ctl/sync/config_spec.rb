@@ -6,32 +6,35 @@ RSpec.describe PagerDutyCtl::Sync::Config do
 
   let(:config) { PagerDutyCtl::Sync::Config.new }
 
-  it "has escalation_policies" do
-    expect(config).to respond_to(:escalation_policies)
-  end
-
-  describe "each escalation_policy" do
-
-    let(:ep) { config.escalation_policies["whatever"] }
-
-    it "has a (mandatory) summary" do
-      expect(ep).to respond_to(:summary)
-      expect(ep.config_errors.keys).to include(".summary")
+  def self.it_requires(fields)
+    it "requires: #{fields.join(", ")}" do
+      expect(subject.config_errors.keys).to include(*fields)
     end
+  end
+
+  describe ".escalation_policies[X]" do
+
+    subject(:ep) { config.escalation_policies["whatever"] }
+
+    it_requires %w(.summary)
 
   end
 
-  it "has services" do
-    expect(config).to respond_to(:services)
-  end
+  describe ".services[X]" do
 
-  describe "each service" do
+    subject(:service) { config.services["whatever"] }
 
-    let(:service) { config.services["whatever"] }
+    it_requires %w(.summary .escalation_policy)
 
-    it "has a (mandatory) summary" do
-      expect(service).to respond_to(:summary)
-      expect(service.config_errors.keys).to include(".summary")
+    describe ".escalation_policy" do
+
+      it "must resolve" do
+        subject.escalation_policy = "24x7"
+        expect(config.config_errors.keys).to include(".services[whatever].escalation_policy")
+        config.escalation_policies["24x7"].summary = "whatever"
+        expect(config.config_errors.keys).not_to include(".services[whatever].escalation_policy")
+      end
+
     end
 
   end

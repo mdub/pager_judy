@@ -44,6 +44,19 @@ module PagerDutyCtl
 
       end
 
+      def config_errors
+        super.tap do |errors|
+          escalation_policy_names = escalation_policies.keys
+          services.each do |key, service|
+            if service.escalation_policy
+              unless escalation_policy_names.include?(service.escalation_policy)
+                errors[".services[#{key}].escalation_policy"] = "Bad reference"
+              end
+            end
+          end
+        end
+      end
+
     end
 
   end
