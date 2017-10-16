@@ -6,7 +6,11 @@ require "pager_kit/fake_api_app"
 
 RSpec.describe PagerDutyCtl::Sync::Syncer do
 
-  let(:fake_pager_duty_app) { PagerKit::FakeApiApp.new }
+  let(:fake_pager_duty_app) do
+    PagerKit::FakeApiApp.new!.tap do |app|
+      app.db = state
+    end
+  end
 
   before do
     ShamRack.at("test-api.pagerduty.com").mount(fake_pager_duty_app)
@@ -47,7 +51,6 @@ RSpec.describe PagerDutyCtl::Sync::Syncer do
       end
 
       it "creates the service" do
-        pending
         service = state.fetch("services").values.first
         expect(service).to match_pact(
           "name" => "myservice",

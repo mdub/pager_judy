@@ -12,7 +12,10 @@ module PagerDutyCtl
       attr_reader :config
 
       def sync
-        # client.services["S123"].update(:name => "foo")
+        config.services.each do |name, detail|
+          payload = detail.to_h.merge(name: name)
+          client.services.create(payload)
+        end
       end
 
     end

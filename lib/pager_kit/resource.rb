@@ -31,12 +31,23 @@ module PagerKit
       MultiJson.load(response.body)
     end
 
+    def post(data)
+      request = new_request
+      request.body = MultiJson.dump(data)
+      response = HTTPI.post(request)
+      if response.error?
+        raise HttpError.new(request, response)
+      end
+      MultiJson.load(response.body)
+    end
+
     private
 
     def new_request
-      HTTPI::Request.new(uri.to_s).tap do |request|
-        request.headers["Accept"] = "application/vnd.pagerduty+json;version=2"
-        request.headers["Authorization"] = "Token token=#{api_key}"
+      HTTPI::Request.new(uri.to_s).tap do |req|
+        req.headers["Accept"] = "application/vnd.pagerduty+json;version=2"
+        req.headers["Authorization"] = "Token token=#{api_key}"
+        req.headers["Content-Type"] = "application/json"
       end
     end
 

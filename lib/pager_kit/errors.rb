@@ -5,7 +5,7 @@ module PagerKit
     def initialize(request, response)
       @request = request
       @response = response
-      super("#{request.url} - #{response.headers.fetch("Status")}")
+      super("#{request.url} - #{response.code}")
     end
 
     attr_reader :request

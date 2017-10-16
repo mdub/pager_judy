@@ -14,6 +14,10 @@ module PagerKit
     attr_reader :type
     attr_reader :options
 
+    def item_type
+      type.chomp("s")
+    end
+
     include Enumerable
 
     def with(more_options)
@@ -35,7 +39,11 @@ module PagerKit
     end
 
     def [](id)
-      Item.new(resource.subresource(id), type.chomp("s"))
+      Item.new(resource.subresource(id), item_type)
+    end
+
+    def create(data)
+      resource.post(item_type => data).fetch(item_type)
     end
 
   end

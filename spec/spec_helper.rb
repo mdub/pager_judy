@@ -1,6 +1,10 @@
+require "httpi"
 require "rspec/pact/matchers"
 require "sham_rack"
 require "yaml"
+
+HTTPI.adapter = :net_http
+HTTPI.log = false
 
 RSpec.configure do |config|
 
