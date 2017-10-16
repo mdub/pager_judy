@@ -49,6 +49,18 @@ RSpec.describe PagerKit::FakeApiApp do
 
     end
 
+    describe "GET /collection/item" do
+
+      before do
+        get "/things/thing1"
+      end
+
+      it "returns 404" do
+        expect(last_response.status).to eq(404)
+      end
+
+    end
+
   end
 
 end
