@@ -61,13 +61,14 @@ module PagerJudy
       subcommand "services", "Display services" do
 
         option %w[-q --query], "FILTER", "name filter"
+        option %w[--team], "ID", "team ID"
 
         include CollectionBehaviour
 
         private
 
         def collection
-          client.services.with(:query => query)
+          client.services.with("query" => query, "team_ids[]" => team)
         end
 
       end
