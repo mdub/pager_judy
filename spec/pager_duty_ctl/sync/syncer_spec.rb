@@ -24,10 +24,6 @@ RSpec.describe PagerDutyCtl::Sync::Syncer do
     YAML
   end
 
-  before do
-
-  end
-
   let(:client) { PagerKit::Client.new("BOGUS_KEY", base_uri: "http://test-api.pagerduty.com/" ) }
   let(:config) { PagerDutyCtl::Sync::Config.from([config_data]) }
   let(:syncer) { described_class.new(config: config, client: client) }
