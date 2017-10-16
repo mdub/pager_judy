@@ -8,7 +8,7 @@ RSpec.describe PagerJudy::Sync::Syncer do
 
   let(:fake_pager_duty_app) do
     PagerJudy::API::FakeApp.new!.tap do |app|
-      app.db = state
+      app.db = db
     end
   end
 
@@ -16,7 +16,7 @@ RSpec.describe PagerJudy::Sync::Syncer do
     ShamRack.at("test-api.pagerduty.com").mount(fake_pager_duty_app)
   end
 
-  let(:state) do
+  let(:db) do
     YAML.safe_load(<<-YAML)
       escalation_policies:
         EP123:
@@ -47,7 +47,7 @@ RSpec.describe PagerJudy::Sync::Syncer do
       end
 
       it "creates the service" do
-        service = state.fetch("services").values.first
+        service = db.fetch("services").values.first
         expect(service).to match_pact(
           "name" => "myservice",
           "summary" => "My great service",
