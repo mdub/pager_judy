@@ -169,6 +169,47 @@ RSpec.describe PagerKit::FakeApiApp do
 
     end
 
+    describe "PUT /collection/item" do
+
+      let(:thing_data) do
+        {
+          "name" => "New name",
+          "extra" => "stuff"
+        }
+      end
+
+      before do
+        put "/things/T2", MultiJson.dump("thing" => thing_data)
+      end
+
+      it "succeeds" do
+        expect(last_response.status).to eq(200)
+      end
+
+      it "update the data" do
+        expect(db.fetch("things")).to match_pact(
+          "T1" => {
+            "name" => "Thing One"
+          },
+          "T2" => {
+            "name" => "New name",
+            "extra" => "stuff"
+          }
+        )
+      end
+
+      it "returns data" do
+        expect(body_json).to match_pact(
+          "thing" => {
+            "id" => "T2",
+            "name" => "New name",
+            "extra" => "stuff"
+          }
+        )
+      end
+
+    end
+
   end
 
 end

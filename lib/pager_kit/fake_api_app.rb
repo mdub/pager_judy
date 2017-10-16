@@ -60,9 +60,22 @@ module PagerKit
     #
     post "/:collection_type" do
       data = json_body.fetch(item_type)
+      data.delete("id")
+      data.delete("type")
       @item_id = SecureRandom.hex(4)
       collection[@item_id] = data
       return_json({item_type => item_data}, 201)
+    end
+
+    # Update an item
+    #
+    put "/:collection_type/:item_id" do
+      return_error(404, "#{item_type} #{item_id} not found") unless item_exists?
+      data = json_body.fetch(item_type)
+      data.delete("id")
+      data.delete("type")
+      collection[item_id].merge!(data)
+      return_json({item_type => item_data}, 200)
     end
 
     not_found do
