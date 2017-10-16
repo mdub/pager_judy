@@ -70,6 +70,32 @@ RSpec.describe PagerJudy::Sync::Syncer do
 
     end
 
+    context "with a updated service" do
+
+      let(:config_data) do
+        YAML.safe_load(<<-YAML)
+          services:
+            existing-service:
+              summary: "Updated summary"
+              escalation_policy:
+                id: EP123
+        YAML
+      end
+
+      it "modifies to existing services" do
+        pending
+        expect(db).to match_pact(
+          "services" => {
+            "S42" => {
+              "name" => "existing-service",
+              "summary" => "Updated summary"
+            }
+          }
+        )
+      end
+
+    end
+
   end
 
 end
