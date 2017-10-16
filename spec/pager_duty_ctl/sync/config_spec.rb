@@ -26,17 +26,6 @@ RSpec.describe PagerDutyCtl::Sync::Config do
 
     it_requires %w(.summary .escalation_policy)
 
-    describe ".escalation_policy" do
-
-      it "must resolve" do
-        subject.escalation_policy = "24x7"
-        expect(config.config_errors.keys).to include(".services[whatever].escalation_policy")
-        config.escalation_policies["24x7"].summary = "whatever"
-        expect(config.config_errors.keys).not_to include(".services[whatever].escalation_policy")
-      end
-
-    end
-
   end
 
 end
