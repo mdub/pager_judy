@@ -11,11 +11,25 @@ module PagerKit
 
     attr_writer :db
 
+    def collection_type
+      collection_type = params["collection_type"]
+    end
+
+    def collection
+      db[collection_type] ||= {}
+    end
+
+    def item_type
+      collection_type.chomp("s")
+    end
+
+    def item_id
+      params["item_id"]
+    end
+
     # List a collection
     #
-    get "/:things" do
-      collection_type = params["things"]
-      collection = db.fetch(collection_type, {})
+    get "/:collection_type" do
       result = {
         collection_type => collection.map { |id, data|
           data.merge("id" => id)
@@ -29,30 +43,34 @@ module PagerKit
 
     # Show an item
     #
-    get "/:things/:id" do
-      collection_type = params["things"]
-      id = params["id"]
-      collection = db.fetch(collection_type, {})
-      item_type = collection_type.chomp("s")
-      return_error(404, "#{item_type} not found") unless collection.key?(id)
-      result = {
-        item_type => collection.fetch(id).merge("id" => id)
-      }
-      return_json(result)
+    get "/:collection_type/:item_id" do
+      item = collection[item_id]
+      return_error(404, "#{item_type} #{item_id} not found") if item.nil?
+      return_json(item_type => item.merge("id" => item_id))
     end
 
-    post "/services" do
-      service_data = json_body.fetch("service")
-      db["services"] ||= {}
-      id = "blah"
-      db["services"][id] = service_data.merge("id" => id)
-      return_json("service" => db["services"][id])
+    # Create an item
+    #
+    post "/:collection_type" do
+      data = json_body.fetch(item_type)
+      item_id = SecureRandom.hex(4)
+      collection[item_id] = data
+      result = {
+        item_type => data.merge("id" => item_id)
+      }
+      return_json(result, 201)
+    end
+
+    not_found do
+      return_error 404, "Not found"
     end
 
     private
 
     def json_body
       MultiJson.load(request.body)
+    rescue MultiJson::ParseError
+      {}
     end
 
     def return_json(data, status = 200)

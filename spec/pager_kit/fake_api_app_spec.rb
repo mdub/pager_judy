@@ -109,6 +109,45 @@ RSpec.describe PagerKit::FakeApiApp do
 
     end
 
+    describe "POST /collection" do
+
+      let(:thing_data) do
+        {
+          "name" => "Third thing"
+        }
+      end
+
+      before do
+        post "/things", MultiJson.dump("thing" => thing_data)
+      end
+
+      it "succeeds" do
+        expect(last_response.status).to eq(201)
+      end
+
+      def generated_id
+        body_json.dig("thing", "id")
+      end
+
+      it "generates an id" do
+        expect(generated_id).not_to be_nil
+      end
+
+      it "stores the data" do
+        expect(db.dig("things", generated_id, "name")).to eq("Third thing")
+      end
+
+      it "returns the data" do
+        expect(body_json).to match_pact(
+          "thing" => {
+            "id" => generated_id,
+            "name" => "Third thing"
+          }
+        )
+      end
+
+    end
+
     describe "GET /collection/item" do
 
       before do
