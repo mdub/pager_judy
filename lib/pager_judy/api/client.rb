@@ -23,6 +23,10 @@ module PagerJudy
         Collection.new(root.subresource(type), type)
       end
 
+      def escalation_policies
+        collection("escalation_policies")
+      end
+
       def schedules
         collection("schedules")
       end

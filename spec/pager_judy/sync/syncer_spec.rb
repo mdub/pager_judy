@@ -31,7 +31,7 @@ RSpec.describe PagerJudy::Sync::Syncer do
   end
 
   let(:client) { PagerJudy::API::Client.new("BOGUS_KEY", base_uri: "http://test-api.pagerduty.com/" ) }
-  let(:config) { PagerJudy::Sync::Config.from([config_data]) }
+  let(:config) { PagerJudy::Sync::Config.from(config_data) }
   let(:syncer) { described_class.new(config: config, client: client) }
 
   describe "#sync" do

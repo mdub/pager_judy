@@ -16,7 +16,7 @@ module PagerJudy
       attr_reader :options
 
       def item_type
-        type.chomp("s")
+        type.sub(/ies$/, "y").chomp("s")
       end
 
       include Enumerable

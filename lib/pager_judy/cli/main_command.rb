@@ -3,6 +3,7 @@ require "console_logger"
 require "pager_judy/api/client"
 require "pager_judy/cli/collection_behaviour"
 require "pager_judy/cli/item_behaviour"
+require "pager_judy/sync"
 require "pager_judy/version"
 
 module PagerJudy
@@ -19,6 +20,32 @@ module PagerJudy
 
       option "--api-key", "KEY", "PagerDuty API key",
              :environment_variable => "PAGER_DUTY_API_KEY"
+
+      subcommand ["escalation-policy", "ep"], "Display escalation policy" do
+
+        parameter "ID", "escalation_policy ID"
+
+        include ItemBehaviour
+
+        def item
+          client.escalation_policies[id]
+        end
+
+      end
+
+      subcommand ["escalation_policies", "eps"], "Display escalation policies" do
+
+        option %w[-q --query], "FILTER", "name filter"
+
+        include CollectionBehaviour
+
+        private
+
+        def collection
+          client.escalation_policies.with(:query => query)
+        end
+
+      end
 
       subcommand "schedule", "Display schedule" do
 
@@ -95,6 +122,16 @@ module PagerJudy
 
         def collection
           client.teams.with(:query => query)
+        end
+
+      end
+
+      subcommand "configure", "Apply config" do
+
+        parameter "SOURCE", "config file"
+
+        def execute
+          config = PagerJudy::Sync::Config.from(source)
         end
 
       end

@@ -15,8 +15,8 @@ module PagerJudy
         # Multiple "sources" can be specified. First one wins.
         # Sources may be a file-name, a URI, or a raw Ruby Hash.
         #
-        def from(config_sources)
-          config_data = data_from(config_sources)
+        def from(*config_sources)
+          config_data = data_from(*config_sources)
           config_data.delete("var")
           from_data(config_data)
         end
@@ -25,7 +25,7 @@ module PagerJudy
         #
         # Includes are processed; defaults are included, references are expanded.
         #
-        def data_from(sources)
+        def data_from(*sources)
           ConfigHound.load(sources, :expand_refs => true, :include_key => "include")
         end
 
