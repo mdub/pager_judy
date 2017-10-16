@@ -1,6 +1,7 @@
 require "clamp"
 require "console_logger"
 require "pager_duty_ctl/cli/collection_behaviour"
+require "pager_duty_ctl/cli/item_behaviour"
 require "pager_duty_ctl/version"
 require "pager_kit/client"
 
@@ -19,6 +20,18 @@ module PagerDutyCtl
       option "--api-key", "KEY", "PagerDuty API key",
              :environment_variable => "PAGER_DUTY_API_KEY"
 
+      subcommand "schedule", "Display schedule" do
+
+        parameter "ID", "schedule ID"
+
+        include ItemBehaviour
+
+        def item
+          client.schedules[id]
+        end
+
+      end
+
       subcommand "schedules", "Display schedules" do
 
         option %w[-q --query], "FILTER", "name filter"
@@ -33,6 +46,18 @@ module PagerDutyCtl
 
       end
 
+      subcommand "service", "Display service" do
+
+        parameter "ID", "service ID"
+
+        include ItemBehaviour
+
+        def item
+          client.services[id]
+        end
+
+      end
+
       subcommand "services", "Display services" do
 
         option %w[-q --query], "FILTER", "name filter"
@@ -43,6 +68,18 @@ module PagerDutyCtl
 
         def collection
           client.services.with(:query => query)
+        end
+
+      end
+
+      subcommand "team", "Display team" do
+
+        parameter "ID", "team ID"
+
+        include ItemBehaviour
+
+        def item
+          client.teams[id]
         end
 
       end

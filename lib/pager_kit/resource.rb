@@ -9,14 +9,16 @@ module PagerKit
 
     def initialize(api_key:, uri:)
       @api_key = api_key
-      @uri = URI(uri)
+      @uri = URI(uri.to_s.chomp("/"))
+      @type = @uri.to_s.split("/").last
     end
 
     attr_reader :api_key
     attr_reader :uri
+    attr_reader :type
 
-    def [](path)
-      Resource.new(api_key: api_key, uri: uri + path)
+    def subresource(path)
+      Resource.new(api_key: api_key, uri: "#{uri}/#{path}")
     end
 
     def get(query = nil)

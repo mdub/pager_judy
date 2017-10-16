@@ -19,7 +19,7 @@ module PagerKit
     end
 
     def collection(type)
-      Collection.new(root["/#{type}"], type)
+      Collection.new(root.subresource(type), type)
     end
 
     def schedules
