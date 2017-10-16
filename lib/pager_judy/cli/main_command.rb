@@ -132,6 +132,7 @@ module PagerJudy
 
         def execute
           config = PagerJudy::Sync::Config.from(source)
+          PagerJudy::Sync.sync(client: client, config: config)
         end
 
       end
@@ -139,6 +140,7 @@ module PagerJudy
       def run(*args)
         super(*args)
       rescue PagerJudy::API::HttpError => e
+        $stderr.puts e.response.body
         signal_error e.message
       end
 

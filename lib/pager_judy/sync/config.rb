@@ -42,7 +42,13 @@ module PagerJudy
         attribute :summary
 
         component :escalation_policy do
+
           attribute :id
+
+          def to_h
+            super.merge("type" => "escalation_policy_reference")
+          end
+
         end
 
       end
