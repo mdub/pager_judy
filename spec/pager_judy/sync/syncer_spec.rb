@@ -21,6 +21,12 @@ RSpec.describe PagerJudy::Sync::Syncer do
       escalation_policies:
         EP123:
           name: myteam-24x7
+      services:
+        S42:
+          name: existing-service
+          summary: "My existing service"
+          escalation_policy:
+            id: EP123
     YAML
   end
 
@@ -39,20 +45,25 @@ RSpec.describe PagerJudy::Sync::Syncer do
       let(:config_data) do
         YAML.safe_load(<<-YAML)
           services:
-            myservice:
-              summary: "My great service"
+            new-service:
+              summary: "My new service"
               escalation_policy:
                 id: EP123
         YAML
       end
 
       it "creates the service" do
-        service = db.fetch("services").values.first
-        expect(service).to match_pact(
-          "name" => "myservice",
-          "summary" => "My great service",
-          "escalation_policy" => {
-            "id" => "EP123"
+        service_matcher = hash_including("name" => "new-service")
+        expect(db.fetch("services").values).to include(service_matcher)
+      end
+
+      it "leaves existing services alone" do
+        expect(db).to match_pact(
+          "services" => {
+            "S42" => {
+              "name" => "existing-service",
+              "summary" => "My existing service"
+            }
           }
         )
       end
