@@ -7,16 +7,18 @@ module PagerJudy
 
     class Client
 
-      def initialize(api_key, base_uri: "https://api.pagerduty.com/")
+      def initialize(api_key, base_uri: "https://api.pagerduty.com/", logger: nil)
         @api_key = api_key
         @base_uri = URI(base_uri)
+        @logger = logger || Logger.new(nil)
       end
 
       attr_reader :api_key
       attr_reader :base_uri
+      attr_reader :logger
 
       def root
-        Resource.new(api_key: api_key, uri: base_uri)
+        Resource.new(api_key: api_key, uri: base_uri, logger: logger)
       end
 
       def collection(type)

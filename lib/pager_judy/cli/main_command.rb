@@ -146,8 +146,8 @@ module PagerJudy
 
       def client
         signal_error "no --api-key provided" unless api_key
-        HTTPI.logger = logger
-        @client ||= PagerJudy::API::Client.new(api_key)
+        HTTPI.log = false
+        @client ||= PagerJudy::API::Client.new(api_key, logger: logger)
       end
 
       def logger
