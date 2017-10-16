@@ -1,11 +1,11 @@
 require "clamp"
 require "console_logger"
-require "pager_duty_ctl/cli/collection_behaviour"
-require "pager_duty_ctl/cli/item_behaviour"
-require "pager_duty_ctl/version"
-require "pager_kit/client"
+require "pager_judy/api/client"
+require "pager_judy/cli/collection_behaviour"
+require "pager_judy/cli/item_behaviour"
+require "pager_judy/version"
 
-module PagerDutyCtl
+module PagerJudy
   module CLI
 
     class MainCommand < Clamp::Command
@@ -13,7 +13,7 @@ module PagerDutyCtl
       option "--debug", :flag, "enable debugging", :attribute_name => :debug
 
       option "--version", :flag, "display version" do
-        puts PagerDutyCtl::VERSION
+        puts PagerJudy::VERSION
         exit 0
       end
 
@@ -103,7 +103,7 @@ module PagerDutyCtl
       def client
         signal_error "no --api-key provided" unless api_key
         HTTPI.logger = logger
-        @client ||= PagerKit::Client.new(api_key)
+        @client ||= PagerJudy::API::Client.new(api_key)
       end
 
       def logger

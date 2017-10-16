@@ -1,10 +1,10 @@
 require "spec_helper"
 
-require "pager_duty_ctl/sync/config"
+require "pager_judy/sync/config"
 
-RSpec.describe PagerDutyCtl::Sync::Config do
+RSpec.describe PagerJudy::Sync::Config do
 
-  let(:config) { PagerDutyCtl::Sync::Config.new }
+  let(:config) { PagerJudy::Sync::Config.new }
 
   def self.it_requires(fields)
     it "requires: #{fields.join(", ")}" do

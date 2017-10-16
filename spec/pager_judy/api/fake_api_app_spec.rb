@@ -1,9 +1,9 @@
 require "spec_helper"
 
 require "rack/test"
-require "pager_kit/fake_api_app"
+require "pager_judy/api/fake_api_app"
 
-RSpec.describe PagerKit::FakeApiApp do
+RSpec.describe PagerJudy::API::FakeApp do
 
   PAGER_DUTY_V2_JSON = "application/vnd.pagerduty+json;version=2"
 

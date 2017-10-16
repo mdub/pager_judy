@@ -3,7 +3,7 @@ require "jmespath"
 require "multi_json"
 require "yaml"
 
-module PagerDutyCtl
+module PagerJudy
   module CLI
 
     module DataDisplay

@@ -1,13 +1,13 @@
 require "spec_helper"
 
-require "pager_duty_ctl/sync/syncer"
-require "pager_kit/client"
-require "pager_kit/fake_api_app"
+require "pager_judy/sync/syncer"
+require "pager_judy/api/client"
+require "pager_judy/api/fake_api_app"
 
-RSpec.describe PagerDutyCtl::Sync::Syncer do
+RSpec.describe PagerJudy::Sync::Syncer do
 
   let(:fake_pager_duty_app) do
-    PagerKit::FakeApiApp.new!.tap do |app|
+    PagerJudy::API::FakeApp.new!.tap do |app|
       app.db = state
     end
   end
@@ -24,8 +24,8 @@ RSpec.describe PagerDutyCtl::Sync::Syncer do
     YAML
   end
 
-  let(:client) { PagerKit::Client.new("BOGUS_KEY", base_uri: "http://test-api.pagerduty.com/" ) }
-  let(:config) { PagerDutyCtl::Sync::Config.from([config_data]) }
+  let(:client) { PagerJudy::API::Client.new("BOGUS_KEY", base_uri: "http://test-api.pagerduty.com/" ) }
+  let(:config) { PagerJudy::Sync::Config.from([config_data]) }
   let(:syncer) { described_class.new(config: config, client: client) }
 
   describe "#sync" do

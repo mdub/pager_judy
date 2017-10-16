@@ -1,6 +1,6 @@
-require "pager_duty_ctl/cli/data_display"
+require "pager_judy/cli/data_display"
 
-module PagerDutyCtl
+module PagerJudy
   module CLI
 
     module CollectionBehaviour

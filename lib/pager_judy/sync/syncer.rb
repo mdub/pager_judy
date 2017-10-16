@@ -1,4 +1,4 @@
-module PagerDutyCtl
+module PagerJudy
   module Sync
 
     class Syncer

@@ -2,9 +2,9 @@
 
 $LOAD_PATH << File.expand_path("../../lib", __FILE__)
 
-require "pager_duty_ctl/cli"
+require "pager_judy/cli"
 
 $stdout.sync = true
 $stderr.sync = true
 
-PagerDutyCtl::CLI::MainCommand.run
+PagerJudy::CLI::MainCommand.run

@@ -2,7 +2,7 @@ require "config_hound"
 require "config_mapper"
 require "config_mapper/config_struct"
 
-module PagerDutyCtl
+module PagerJudy
   module Sync
 
     # load and validate our configuration
