@@ -24,7 +24,7 @@ RSpec.describe PagerDutyCtl::Sync::Config do
 
     subject(:service) { config.services["whatever"] }
 
-    it_requires %w(.summary .escalation_policy)
+    it_requires %w(.summary .escalation_policy.id)
 
   end
 

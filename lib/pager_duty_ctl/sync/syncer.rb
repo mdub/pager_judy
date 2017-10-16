@@ -8,7 +8,11 @@ module PagerDutyCtl
         @config = config
       end
 
+      attr_reader :client
+      attr_reader :config
+
       def sync
+        # client.services["S123"].update(:name => "foo")
       end
 
     end

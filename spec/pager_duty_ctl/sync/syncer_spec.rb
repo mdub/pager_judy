@@ -1,8 +1,16 @@
 require "spec_helper"
 
 require "pager_duty_ctl/sync/syncer"
+require "pager_kit/client"
+require "pager_kit/fake_api_app"
 
 RSpec.describe PagerDutyCtl::Sync::Syncer do
+
+  let(:fake_pager_duty_app) { PagerKit::FakeApiApp.new }
+
+  before do
+    ShamRack.at("test-api.pagerduty.com").mount(fake_pager_duty_app)
+  end
 
   let(:state) do
     YAML.safe_load(<<-YAML)
@@ -16,7 +24,7 @@ RSpec.describe PagerDutyCtl::Sync::Syncer do
 
   end
 
-  let(:client) { nil }
+  let(:client) { PagerKit::Client.new("BOGUS_KEY", base_uri: "http://test-api.pagerduty.com/" ) }
   let(:config) { PagerDutyCtl::Sync::Config.from([config_data]) }
   let(:syncer) { described_class.new(config: config, client: client) }
 
@@ -43,7 +51,10 @@ RSpec.describe PagerDutyCtl::Sync::Syncer do
         service = state.fetch("services").values.first
         expect(service).to match_pact(
           "name" => "myservice",
-          "summary" => "My great service"
+          "summary" => "My great service",
+          "escalation_policy" => {
+            "id" => "EP123"
+          }
         )
       end
 

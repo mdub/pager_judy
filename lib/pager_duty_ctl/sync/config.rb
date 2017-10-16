@@ -40,7 +40,10 @@ module PagerDutyCtl
       component_dict :services do
 
         attribute :summary
-        attribute :escalation_policy
+
+        component :escalation_policy do
+          attribute :id
+        end
 
       end
 

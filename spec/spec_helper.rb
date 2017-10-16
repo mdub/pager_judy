@@ -1,4 +1,5 @@
 require "rspec/pact/matchers"
+require "sham_rack"
 require "yaml"
 
 RSpec.configure do |config|
@@ -9,5 +10,9 @@ RSpec.configure do |config|
   config.default_formatter = 'doc' if config.files_to_run.one?
 
   Kernel.srand config.seed
+
+  config.before(:suite) do
+    ShamRack.prevent_network_connections
+  end
 
 end
