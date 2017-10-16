@@ -3,9 +3,20 @@ require "multi_json"
 
 module PagerKit
 
+  # This little Rack app is designed to fake the PagerDuty REST API.
+  #
+  # It's pretty much just CRUD:
+  #
+  #   GET  /COLLECTION
+  #   POST /COLLECTION
+  #   GET  /COLLECTION/ID
+  #   PUT  /COLLECTION/ID
+  #
   class FakeApiApp < Sinatra::Base
 
     def db
+      # The "database" is just a big Hash. We make it an instance variable,
+      # so it sticks around between requests.
       @db ||= Hash.new
     end
 
