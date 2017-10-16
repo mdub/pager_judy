@@ -2,5 +2,6 @@ steps:
 
   - name: Test
     command: ./auto/test
-    agents:
-      queue: cpdev:build
+
+  - name: Build
+    command: ./auto/build
