@@ -1,4 +1,4 @@
-# REA Group PagerDuty account 	[![Build status](https://badge.buildkite.com/94204ed8f1b5430f74385e4342653a78b5f1eb4d1864055b4e.svg)](https://buildkite.com/rea/cowbell-slash-rea-group-pagerduty)
+# REA Group PagerDuty account 	[![Build status](https://badge.buildkite.com/94204ed8f1b5430f74385e4342653a78b5f1eb4d1864055b4e.svg)](https://buildkite.com/rea/cowbell-slash-pagerjudy)
 GDE make PagerDuty duty less painful
 
 ## Why?
