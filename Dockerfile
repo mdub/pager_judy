@@ -16,6 +16,7 @@ RUN bundle install --without development test
 COPY bin /app/bin
 COPY lib /app/lib
 COPY README.md /app/
+COPY version.txt /app/
 
 WORKDIR /cwd
 

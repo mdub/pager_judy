@@ -5,3 +5,13 @@ steps:
 
   - name: Build
     command: ./auto/build
+
+  - block: OK release
+    branches: master
+
+  - name: Release
+    command: ./auto/release
+    branches: master
+    artifact_paths: target/docker-image.txt
+    agents:
+      queue: cpdev:build

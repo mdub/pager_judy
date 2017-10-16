@@ -1,5 +1,5 @@
 module PagerJudy
 
-  VERSION = "0.1.0"
+  VERSION = File.read(File.expand_path("../../../version.txt", __FILE__)).strip
 
 end
