@@ -5,9 +5,10 @@ gem "config_hound", "~> 1.4", ">= 1.4.1"
 gem "config_mapper", "~> 1.6"
 gem "console_logger", "~> 1.0"
 gem "httpi"
+gem "jmespath"
 gem "multi_json"
 
-group "development", "test" do
+group "development" do
   gem "pry"
   gem "rack-test"
   gem "rake", "~> 12.0"
