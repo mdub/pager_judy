@@ -98,6 +98,12 @@ module PagerJudy
 
       end
 
+      def run(*args)
+        super(*args)
+      rescue PagerJudy::API::HttpError => e
+        signal_error e.message
+      end
+
       private
 
       def client

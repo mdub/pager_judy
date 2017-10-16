@@ -6,7 +6,7 @@ module PagerJudy
       def initialize(request, response)
         @request = request
         @response = response
-        super("#{request.url} - #{response.code}")
+        super(response.headers["Status"])
       end
 
       attr_reader :request
