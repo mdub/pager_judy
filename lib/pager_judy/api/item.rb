@@ -15,6 +15,10 @@ module PagerJudy
         resource.get.fetch(type)
       end
 
+      def update(data)
+        resource.put(type => data).fetch(type)
+      end
+
       def to_h
         read
       end

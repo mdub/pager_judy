@@ -42,6 +42,16 @@ module PagerJudy
         MultiJson.load(response.body)
       end
 
+      def put(data)
+        request = new_request
+        request.body = MultiJson.dump(data)
+        response = HTTPI.put(request)
+        if response.error?
+          raise HttpError.new(request, response)
+        end
+        MultiJson.load(response.body)
+      end
+
       private
 
       def new_request

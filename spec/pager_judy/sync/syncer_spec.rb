@@ -83,7 +83,6 @@ RSpec.describe PagerJudy::Sync::Syncer do
       end
 
       it "modifies to existing services" do
-        pending
         expect(db).to match_pact(
           "services" => {
             "S42" => {
