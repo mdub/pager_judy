@@ -81,6 +81,7 @@ DEPENDENCIES
   httpi
   multi_json
   pry
+  rack-test
   rake (~> 12.0)
   rspec (~> 3.5)
   rspec-pact-matchers (~> 0.1)

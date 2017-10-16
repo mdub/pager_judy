@@ -7,6 +7,18 @@ module PagerKit
 
     attr_accessor :db
 
+    get "/:things" do
+      collection_name = params["things"]
+      collection = []
+      result = {
+        collection_name => collection,
+        "limit" => collection.size + 10,
+        "offset" => 0,
+        "more" => false
+      }
+      return_json(result)
+    end
+
     post "/services" do
       service_data = json_body.fetch("service")
       db["services"] ||= {}

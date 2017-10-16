@@ -9,6 +9,7 @@ gem "multi_json"
 
 group "development", "test" do
   gem "pry"
+  gem "rack-test"
   gem "rake", "~> 12.0"
   gem "rspec", "~> 3.5"
   gem "rspec-pact-matchers", "~> 0.1"
