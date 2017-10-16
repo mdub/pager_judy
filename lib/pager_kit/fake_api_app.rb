@@ -24,7 +24,15 @@ module PagerKit
     end
 
     def item_id
-      params["item_id"]
+      @item_id ||= params["item_id"]
+    end
+
+    def item_exists?
+      collection.key?(item_id)
+    end
+
+    def item_data
+      collection.fetch(item_id).merge("id" => item_id, "type" => "item_type")
     end
 
     # List a collection
@@ -44,21 +52,17 @@ module PagerKit
     # Show an item
     #
     get "/:collection_type/:item_id" do
-      item = collection[item_id]
-      return_error(404, "#{item_type} #{item_id} not found") if item.nil?
-      return_json(item_type => item.merge("id" => item_id))
+      return_error(404, "#{item_type} #{item_id} not found") unless item_exists?
+      return_json(item_type => item_data)
     end
 
     # Create an item
     #
     post "/:collection_type" do
       data = json_body.fetch(item_type)
-      item_id = SecureRandom.hex(4)
-      collection[item_id] = data
-      result = {
-        item_type => data.merge("id" => item_id)
-      }
-      return_json(result, 201)
+      @item_id = SecureRandom.hex(4)
+      collection[@item_id] = data
+      return_json({item_type => item_data}, 201)
     end
 
     not_found do
