@@ -1,0 +1,50 @@
+Eval:
+  Exclude:
+    - "Rakefile"
+
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
+
+Layout/EmptyLinesAroundClassBody:
+  EnforcedStyle: empty_lines
+
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 30
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: nested
+  Exclude:
+    - "spec/**/*"
+
+Style/ConditionalAssignment:
+  Enabled: false
+
+Style/Documentation:
+  Exclude:
+    - "spec/**/*"
+
+Style/Encoding:
+  EnforcedStyle: when_needed
+  Enabled: true
+
+Style/FileName:
+  Exclude:
+    - "bin/*"
+
+Style/HashSyntax:
+  EnforcedStyle: ruby19
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/WordArray:
+  Enabled: false

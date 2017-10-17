@@ -14,6 +14,7 @@ group "development" do
   gem "rake", "~> 12.0"
   gem "rspec", "~> 3.5"
   gem "rspec-pact-matchers", "~> 0.1"
+  gem "rubocop", "~> 0.49"
   gem "sham_rack"
   gem "sinatra"
 end
