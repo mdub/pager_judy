@@ -20,9 +20,9 @@ module PagerJudy
 
       def update(data)
         result = if dry_run?
-          data
-        else
-          resource.put(type => data).fetch(type)
+                   data
+                 else
+                   resource.put(type => data).fetch(type)
         end
         name = data.fetch("name")
         logger.info { "updated #{type} #{name.inspect} [#{id}]" }

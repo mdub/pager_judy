@@ -22,7 +22,7 @@ module PagerJudy
       include Enumerable
 
       def with(more_criteria)
-        more_criteria = Hash[more_criteria.select { |_,v| v }]
+        more_criteria = Hash[more_criteria.select { |_, v| v }]
         Collection.new(resource, type, criteria.merge(more_criteria))
       end
 
@@ -46,9 +46,9 @@ module PagerJudy
       def create(data)
         name = data.fetch("name")
         result = if dry_run?
-          data.merge("id" => "{#{name}}")
-        else
-          resource.post(item_type => data).fetch(item_type)
+                   data.merge("id" => "{#{name}}")
+                 else
+                   resource.post(item_type => data).fetch(item_type)
         end
         id = result.fetch("id")
         logger.info { "created #{item_type} #{name.inspect} [#{id}]" }

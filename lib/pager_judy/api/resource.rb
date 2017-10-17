@@ -34,9 +34,7 @@ module PagerJudy
         request.query = query if query
         debug("GET", request.url)
         response = HTTPI.get(request)
-        if response.error?
-          raise HttpError.new(request, response)
-        end
+        raise HttpError.new(request, response) if response.error?
         MultiJson.load(response.body)
       end
 
@@ -45,9 +43,7 @@ module PagerJudy
         request.body = MultiJson.dump(data)
         debug("POST", request.url, data)
         response = HTTPI.post(request)
-        if response.error?
-          raise HttpError.new(request, response)
-        end
+        raise HttpError.new(request, response) if response.error?
         MultiJson.load(response.body)
       end
 
@@ -56,9 +52,7 @@ module PagerJudy
         request.body = MultiJson.dump(data)
         debug("PUT", request.url, data)
         response = HTTPI.put(request)
-        if response.error?
-          raise HttpError.new(request, response)
-        end
+        raise HttpError.new(request, response) if response.error?
         MultiJson.load(response.body)
       end
 

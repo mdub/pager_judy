@@ -11,12 +11,12 @@ module PagerJudy
       extend Clamp::Option::Declaration
 
       option %w[-f --format], "FORMAT", "format for data output",
-             :attribute_name => :output_format,
-             :default => "YAML"
+             attribute_name: :output_format,
+             default: "YAML"
 
       def output_format=(arg)
         arg = arg.upcase
-        unless %w(JSON YAML).member?(arg)
+        unless %w[JSON YAML].member?(arg)
           raise ArgumentError, "unrecognised data format: #{arg.inspect}"
         end
         @output_format = arg
@@ -27,7 +27,7 @@ module PagerJudy
       def format_data(data)
         case output_format
         when "JSON"
-          MultiJson.dump(data, :pretty => true)
+          MultiJson.dump(data, pretty: true)
         when "YAML"
           YAML.dump(data)
         else

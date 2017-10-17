@@ -19,7 +19,7 @@ module PagerJudy
       def db
         # The "database" is just a big Hash. We make it an instance variable,
         # so it sticks around between requests.
-        @db ||= Hash.new
+        @db ||= {}
       end
 
       attr_writer :db
@@ -52,9 +52,9 @@ module PagerJudy
       #
       get "/:collection_type" do
         result = {
-          collection_type => collection.map { |id, data|
+          collection_type => collection.map do |id, data|
             data.merge("id" => id)
-          },
+          end,
           "limit" => collection.size + 10,
           "offset" => 0,
           "more" => false
@@ -77,7 +77,7 @@ module PagerJudy
         data.delete("type")
         @item_id = SecureRandom.hex(4)
         collection[@item_id] = data
-        return_json({item_type => item_data}, 201)
+        return_json({ item_type => item_data }, 201)
       end
 
       # Update an item
@@ -88,7 +88,7 @@ module PagerJudy
         data.delete("id")
         data.delete("type")
         collection[item_id].merge!(data)
-        return_json({item_type => item_data}, 200)
+        return_json({ item_type => item_data }, 200)
       end
 
       not_found do

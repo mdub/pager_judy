@@ -26,7 +26,7 @@ module PagerJudy
         # Includes are processed; defaults are included, references are expanded.
         #
         def data_from(*sources)
-          ConfigHound.load(sources, :expand_refs => true, :include_key => "include")
+          ConfigHound.load(sources, expand_refs: true, include_key: "include")
         end
 
       end

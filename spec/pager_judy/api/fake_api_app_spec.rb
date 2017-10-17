@@ -5,7 +5,7 @@ require "pager_judy/api/fake_api_app"
 
 RSpec.describe PagerJudy::API::FakeApp do
 
-  PAGER_DUTY_V2_JSON = "application/vnd.pagerduty+json;version=2"
+  PAGER_DUTY_V2_JSON = "application/vnd.pagerduty+json;version=2".freeze
 
   include Rack::Test::Methods
 
@@ -73,7 +73,7 @@ RSpec.describe PagerJudy::API::FakeApp do
   context "with existing data" do
 
     let(:db) do
-      YAML.load(<<-DATA)
+      YAML.safe_load(<<-DATA)
         things:
           T1:
             name: Thing One

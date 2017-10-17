@@ -6,7 +6,6 @@ module PagerJudy
     module ItemBehaviour
 
       def self.included(target)
-
         target.default_subcommand = "data"
 
         target.subcommand ["data", "d"], "Full details" do
@@ -18,7 +17,6 @@ module PagerJudy
           end
 
         end
-
       end
 
     end

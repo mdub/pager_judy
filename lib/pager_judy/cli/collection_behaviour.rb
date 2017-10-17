@@ -6,14 +6,13 @@ module PagerJudy
     module CollectionBehaviour
 
       def self.included(target)
-
         target.default_subcommand = "summary"
 
         target.subcommand ["summary", "s"], "One-line summary" do
 
           def execute
             collection.each do |item|
-              puts "#{item.fetch("id")}: #{item.fetch("name")}"
+              puts "#{item.fetch('id')}: #{item.fetch('name')}"
             end
           end
 
@@ -30,7 +29,6 @@ module PagerJudy
           end
 
         end
-
       end
 
     end

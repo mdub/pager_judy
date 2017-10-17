@@ -20,7 +20,7 @@ module PagerJudy
       end
 
       option "--api-key", "KEY", "PagerDuty API key",
-             :environment_variable => "PAGER_DUTY_API_KEY"
+             environment_variable: "PAGER_DUTY_API_KEY"
 
       subcommand ["escalation-policy", "ep"], "Display escalation policy" do
 
@@ -43,7 +43,7 @@ module PagerJudy
         private
 
         def collection
-          client.escalation_policies.with(:query => query)
+          client.escalation_policies.with(query: query)
         end
 
       end
@@ -69,7 +69,7 @@ module PagerJudy
         private
 
         def collection
-          client.schedules.with(:query => query)
+          client.schedules.with(query: query)
         end
 
       end
@@ -122,7 +122,7 @@ module PagerJudy
         private
 
         def collection
-          client.teams.with(:query => query)
+          client.teams.with(query: query)
         end
 
       end

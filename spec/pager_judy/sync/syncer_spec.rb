@@ -84,7 +84,7 @@ RSpec.describe PagerJudy::Sync::Syncer do
           "services" => {
             "S42" => {
               "name" => "existing-service",
-              "description" => "My existing service",
+              "description" => "My existing service"
             }
           }
         )

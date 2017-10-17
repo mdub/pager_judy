@@ -7,7 +7,7 @@ RSpec.describe PagerJudy::Sync::Config do
   let(:config) { PagerJudy::Sync::Config.new }
 
   def self.it_requires(fields)
-    it "requires: #{fields.join(", ")}" do
+    it "requires: #{fields.join(', ')}" do
       expect(subject.config_errors.keys).to include(*fields)
     end
   end
@@ -16,7 +16,7 @@ RSpec.describe PagerJudy::Sync::Config do
 
     subject(:ep) { config.escalation_policies["whatever"] }
 
-    it_requires %w(.description)
+    it_requires %w[.description]
 
   end
 
@@ -24,7 +24,7 @@ RSpec.describe PagerJudy::Sync::Config do
 
     subject(:service) { config.services["whatever"] }
 
-    it_requires %w(.description .escalation_policy.id)
+    it_requires %w[.description .escalation_policy.id]
 
   end
 
