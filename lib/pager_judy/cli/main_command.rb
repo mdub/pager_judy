@@ -128,10 +128,13 @@ module PagerJudy
 
       subcommand "configure", "Apply config" do
 
+        option "--check", :flag, "just validate the config"
+
         parameter "SOURCE", "config file"
 
         def execute
           config = PagerJudy::Sync::Config.from(source)
+          return if check?
           PagerJudy::Sync.sync(client: client, config: config)
         end
 
