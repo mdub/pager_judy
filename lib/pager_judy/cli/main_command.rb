@@ -142,6 +142,8 @@ module PagerJudy
       rescue PagerJudy::API::HttpError => e
         $stderr.puts e.response.body
         signal_error e.message
+      rescue ConfigMapper::MappingError => e
+        signal_error e.message
       end
 
       private
