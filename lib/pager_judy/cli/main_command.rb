@@ -11,7 +11,8 @@ module PagerJudy
 
     class MainCommand < Clamp::Command
 
-      option "--debug", :flag, "enable debugging", :attribute_name => :debug
+      option "--debug", :flag, "enable debugging"
+      option "--dry-run", :flag, "enable dry-run mode"
 
       option "--version", :flag, "display version" do
         puts PagerJudy::VERSION
@@ -178,7 +179,7 @@ module PagerJudy
       def client
         signal_error "no --api-key provided" unless api_key
         HTTPI.log = false
-        @client ||= PagerJudy::API::Client.new(api_key, logger: logger)
+        @client ||= PagerJudy::API::Client.new(api_key, logger: logger, dry_run: dry_run?)
       end
 
       def logger

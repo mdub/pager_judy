@@ -1,3 +1,7 @@
+## PENDING
+
+* Add "--dry-run" option to "configure".
+
 ## 0.1.3 (2017-08-17)
 
 * Add "users" subcommand.
