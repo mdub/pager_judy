@@ -8,11 +8,11 @@ module PagerJudy
 
     class Resource
 
-      def initialize(api_key:, uri:, logger:)
+      def initialize(api_key:, uri:, logger: nil)
         @api_key = api_key
         @uri = URI(uri.to_s.chomp("/"))
         @type = @uri.to_s.split("/").last
-        @logger = logger
+        @logger = logger || Logger.new(nil)
       end
 
       attr_reader :api_key

@@ -1,3 +1,4 @@
+require "securerandom"
 require "sinatra/base"
 require "multi_json"
 

@@ -10,7 +10,7 @@ module PagerJudy
       def initialize(api_key, base_uri: "https://api.pagerduty.com/", logger: nil)
         @api_key = api_key
         @base_uri = URI(base_uri)
-        @logger = logger || Logger.new(nil)
+        @logger = logger
       end
 
       attr_reader :api_key
