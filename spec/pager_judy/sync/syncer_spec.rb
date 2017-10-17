@@ -1,5 +1,6 @@
 require "spec_helper"
 
+require "console_logger"
 require "pager_judy/sync/syncer"
 require "pager_judy/api/client"
 require "pager_judy/api/fake_api_app"
@@ -30,7 +31,21 @@ RSpec.describe PagerJudy::Sync::Syncer do
     YAML
   end
 
-  let(:client) { PagerJudy::API::Client.new("BOGUS_KEY", base_uri: "http://test-api.pagerduty.com/" ) }
+  let(:log_buffer) { StringIO.new }
+  let(:log_output) { log_buffer.string }
+  let(:logger) { ConsoleLogger.new(log_buffer) }
+
+  let(:dry_run) { false }
+
+  let(:client) do
+    PagerJudy::API::Client.new(
+      "BOGUS_KEY",
+      base_uri: "http://test-api.pagerduty.com/",
+      logger: logger,
+      dry_run: dry_run
+    )
+  end
+
   let(:config) { PagerJudy::Sync::Config.from(config_data) }
   let(:syncer) { described_class.new(config: config, client: client) }
 
@@ -95,6 +110,50 @@ RSpec.describe PagerJudy::Sync::Syncer do
             "S42" => {
               "name" => "existing-service",
               "description" => "Updated description"
+            }
+          }
+        )
+      end
+
+    end
+
+  end
+
+  context "in :dry_run mode" do
+
+    let(:dry_run) { true }
+
+    describe "#sync" do
+
+      before do
+        syncer.sync
+      end
+
+      let(:config_data) do
+        YAML.safe_load(<<-YAML)
+          services:
+            new-service:
+              description: "My new service"
+              escalation_policy:
+                id: EP123
+            existing-service:
+              description: "Updated description"
+              escalation_policy:
+                id: EP123
+        YAML
+      end
+
+      it "does not create new services" do
+        service_matcher = hash_including("name" => "new-service")
+        expect(db.fetch("services").values).not_to include(service_matcher)
+      end
+
+      it "leaves existing services alone" do
+        expect(db).to match_pact(
+          "services" => {
+            "S42" => {
+              "name" => "existing-service",
+              "description" => "My existing service"
             }
           }
         )
