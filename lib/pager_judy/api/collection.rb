@@ -47,6 +47,30 @@ module PagerJudy
         resource.post(item_type => data).fetch(item_type)
       end
 
+      def create_or_update(id, data)
+        if id.nil?
+          create(data)
+        else
+          self[id].update(data)
+        end
+      end
+
+      def id_for_name(name)
+        ids_by_name[name]
+      end
+
+      def create_or_update_by_name(name, data)
+        create_or_update(id_for_name(name), data.merge(name: name))
+      end
+
+      private
+
+      def ids_by_name
+        @ids_by_name ||= each_with_object({}) do |item, result|
+          result[item.fetch("name")] = item.fetch("id")
+        end
+      end
+
     end
 
   end
