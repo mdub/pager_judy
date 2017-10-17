@@ -1,3 +1,8 @@
+## 0.1.3 (2017-08-17)
+
+* Add "users" subcommand.
+* Add "--check" option to "configure".
+
 ## 0.1.2 (2017-08-17)
 
 * Fix "configure" subcommand.
