@@ -33,13 +33,13 @@ module PagerJudy
 
       component_dict :escalation_policies do
 
-        attribute :summary
+        attribute :description
 
       end
 
       component_dict :services do
 
-        attribute :summary
+        attribute :description
 
         component :escalation_policy do
 

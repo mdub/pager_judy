@@ -24,7 +24,7 @@ RSpec.describe PagerJudy::Sync::Syncer do
       services:
         S42:
           name: existing-service
-          summary: "My existing service"
+          description: "My existing service"
           escalation_policy:
             id: EP123
     YAML
@@ -46,7 +46,7 @@ RSpec.describe PagerJudy::Sync::Syncer do
         YAML.safe_load(<<-YAML)
           services:
             new-service:
-              summary: "My new service"
+              description: "My new service"
               escalation_policy:
                 id: EP123
         YAML
@@ -55,7 +55,7 @@ RSpec.describe PagerJudy::Sync::Syncer do
       it "creates the service" do
         service_matcher = hash_including(
           "name" => "new-service",
-          "summary" => "My new service",
+          "description" => "My new service",
           "escalation_policy" => {
             "id" => "EP123",
             "type" => "escalation_policy_reference"
@@ -69,7 +69,7 @@ RSpec.describe PagerJudy::Sync::Syncer do
           "services" => {
             "S42" => {
               "name" => "existing-service",
-              "summary" => "My existing service",
+              "description" => "My existing service",
             }
           }
         )
@@ -83,7 +83,7 @@ RSpec.describe PagerJudy::Sync::Syncer do
         YAML.safe_load(<<-YAML)
           services:
             existing-service:
-              summary: "Updated summary"
+              description: "Updated description"
               escalation_policy:
                 id: EP123
         YAML
@@ -94,7 +94,7 @@ RSpec.describe PagerJudy::Sync::Syncer do
           "services" => {
             "S42" => {
               "name" => "existing-service",
-              "summary" => "Updated summary"
+              "description" => "Updated description"
             }
           }
         )

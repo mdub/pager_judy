@@ -16,7 +16,7 @@ RSpec.describe PagerJudy::Sync::Config do
 
     subject(:ep) { config.escalation_policies["whatever"] }
 
-    it_requires %w(.summary)
+    it_requires %w(.description)
 
   end
 
@@ -24,7 +24,7 @@ RSpec.describe PagerJudy::Sync::Config do
 
     subject(:service) { config.services["whatever"] }
 
-    it_requires %w(.summary .escalation_policy.id)
+    it_requires %w(.description .escalation_policy.id)
 
   end
 
