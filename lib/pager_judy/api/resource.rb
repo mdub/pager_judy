@@ -25,9 +25,9 @@ module PagerJudy
       end
 
       def get(query = nil)
-        debug("GET")
         request = new_request
         request.query = query if query
+        debug("GET", request.url)
         response = HTTPI.get(request)
         if response.error?
           raise HttpError.new(request, response)
@@ -36,9 +36,9 @@ module PagerJudy
       end
 
       def post(data)
-        debug("POST", data)
         request = new_request
         request.body = MultiJson.dump(data)
+        debug("POST", request.url, data)
         response = HTTPI.post(request)
         if response.error?
           raise HttpError.new(request, response)
@@ -47,9 +47,9 @@ module PagerJudy
       end
 
       def put(data)
-        debug("PUT", data)
         request = new_request
         request.body = MultiJson.dump(data)
+        debug("PUT", request.url, data)
         response = HTTPI.put(request)
         if response.error?
           raise HttpError.new(request, response)
@@ -59,10 +59,10 @@ module PagerJudy
 
       private
 
-      def debug(operation, data = nil)
+      def debug(operation, url, data = nil)
         logger.debug do
           data_dump = MultiJson.dump(data, pretty: true) if data
-          [operation, uri, data_dump].join(" ")
+          [operation, url, data_dump].join(" ")
         end
       end
 
