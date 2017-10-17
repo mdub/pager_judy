@@ -33,7 +33,7 @@ RSpec.describe PagerJudy::Sync::Syncer do
 
   let(:log_buffer) { StringIO.new }
   let(:log_output) { log_buffer.string }
-  let(:logger) { ConsoleLogger.new(log_buffer) }
+  let(:logger) { ConsoleLogger.new(log_buffer, true) }
 
   let(:dry_run) { false }
 
@@ -157,6 +157,11 @@ RSpec.describe PagerJudy::Sync::Syncer do
             }
           }
         )
+      end
+
+      it "logs the update/create operations (that it didn't perform)" do
+        expect(log_output).to include('INFO: created service "new-service" [{new-service}]')
+        expect(log_output).to include('INFO: updated service "existing-service" [S42]')
       end
 
     end

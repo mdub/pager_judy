@@ -42,15 +42,19 @@ module PagerJudy
       end
 
       def [](id)
-        Item.new(resource.subresource(id), item_type, dry_run: dry_run)
+        Item.new(resource.subresource(id), item_type, id, dry_run: dry_run)
       end
 
       def create(data)
-        if dry_run
-          fake_id = "{{" + data.fetch("name") + "}}"
-          return data.merge("id" => fake_id)
+        name = data.fetch("name")
+        result = if dry_run
+          data.merge("id" => "{#{name}}")
+        else
+          resource.post(item_type => data).fetch(item_type)
         end
-        resource.post(item_type => data).fetch(item_type)
+        id = result.fetch("id")
+        logger.info { "created #{item_type} #{name.inspect} [#{id}]" }
+        result
       end
 
       def create_or_update(id, data)
@@ -75,6 +79,10 @@ module PagerJudy
         @ids_by_name ||= each_with_object({}) do |item, result|
           result[item.fetch("name")] = item.fetch("id")
         end
+      end
+
+      def logger
+        resource.logger
       end
 
     end
