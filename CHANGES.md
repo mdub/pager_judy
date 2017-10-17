@@ -1,4 +1,4 @@
-## PENDING
+## 0.1.4 (2017-08-18)
 
 * Add "--dry-run" option to "configure".
 
