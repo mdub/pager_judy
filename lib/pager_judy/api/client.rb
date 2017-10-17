@@ -41,6 +41,10 @@ module PagerJudy
         collection("teams")
       end
 
+      def users
+        collection("users")
+      end
+
     end
 
   end

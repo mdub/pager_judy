@@ -126,6 +126,30 @@ module PagerJudy
 
       end
 
+      subcommand "user", "Display user" do
+
+        parameter "ID", "user ID"
+
+        include ItemBehaviour
+
+        def item
+          client.users[id]
+        end
+
+      end
+
+      subcommand "users", "User operations" do
+
+        include CollectionBehaviour
+
+        private
+
+        def collection
+          client.users
+        end
+
+      end
+
       subcommand "configure", "Apply config" do
 
         option "--check", :flag, "just validate the config"
