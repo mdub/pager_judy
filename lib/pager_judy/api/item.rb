@@ -3,11 +3,10 @@ module PagerJudy
 
     class Item
 
-      def initialize(resource, type, id, dry_run: false)
+      def initialize(resource, type, id)
         @resource = resource
         @type = type
         @id = id
-        @dry_run = dry_run
       end
 
       attr_reader :resource
@@ -20,7 +19,11 @@ module PagerJudy
       end
 
       def update(data)
-        result = dry_run ? data : resource.put(type => data).fetch(type)
+        result = if dry_run?
+          data
+        else
+          resource.put(type => data).fetch(type)
+        end
         name = data.fetch("name")
         logger.info { "updated #{type} #{name.inspect} [#{id}]" }
       end
@@ -33,6 +36,10 @@ module PagerJudy
 
       def logger
         resource.logger
+      end
+
+      def dry_run?
+        resource.dry_run?
       end
 
     end

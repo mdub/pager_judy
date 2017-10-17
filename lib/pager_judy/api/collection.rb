@@ -5,17 +5,15 @@ module PagerJudy
 
     class Collection
 
-      def initialize(resource, type, criteria = {}, dry_run: false)
+      def initialize(resource, type, criteria = {})
         @resource = resource
         @type = type
         @criteria = criteria
-        @dry_run = dry_run
       end
 
       attr_reader :resource
       attr_reader :type
       attr_reader :criteria
-      attr_reader :dry_run
 
       def item_type
         type.sub(/ies$/, "y").chomp("s")
@@ -42,12 +40,12 @@ module PagerJudy
       end
 
       def [](id)
-        Item.new(resource.subresource(id), item_type, id, dry_run: dry_run)
+        Item.new(resource.subresource(id), item_type, id)
       end
 
       def create(data)
         name = data.fetch("name")
-        result = if dry_run
+        result = if dry_run?
           data.merge("id" => "{#{name}}")
         else
           resource.post(item_type => data).fetch(item_type)
@@ -83,6 +81,10 @@ module PagerJudy
 
       def logger
         resource.logger
+      end
+
+      def dry_run?
+        resource.dry_run?
       end
 
     end

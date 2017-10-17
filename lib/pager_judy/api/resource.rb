@@ -8,11 +8,12 @@ module PagerJudy
 
     class Resource
 
-      def initialize(api_key:, uri:, logger: nil)
+      def initialize(api_key:, uri:, logger: nil, dry_run: false)
         @api_key = api_key
         @uri = URI(uri.to_s.chomp("/"))
         @type = @uri.to_s.split("/").last
         @logger = logger || Logger.new(nil)
+        @dry_run = dry_run
       end
 
       attr_reader :api_key
@@ -20,8 +21,12 @@ module PagerJudy
       attr_reader :type
       attr_reader :logger
 
+      def dry_run?
+        @dry_run
+      end
+
       def subresource(path)
-        Resource.new(api_key: api_key, uri: "#{uri}/#{path}", logger: logger)
+        Resource.new(api_key: api_key, uri: "#{uri}/#{path}", logger: logger, dry_run: dry_run?)
       end
 
       def get(query = nil)
