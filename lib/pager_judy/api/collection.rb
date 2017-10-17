@@ -3,6 +3,8 @@ require "pager_judy/api/item"
 module PagerJudy
   module API
 
+    # Represents a collection of things, e.g. services, users, ...
+    #
     class Collection
 
       def initialize(resource, type, criteria = {})
@@ -45,10 +47,10 @@ module PagerJudy
 
       def create(data)
         name = data.fetch("name")
-        result = if dry_run?
-                   data.merge("id" => "{#{name}}")
-                 else
-                   resource.post(item_type => data).fetch(item_type)
+        if dry_run?
+          result = data.merge("id" => "{#{name}}")
+        else
+          result = resource.post(item_type => data).fetch(item_type)
         end
         id = result.fetch("id")
         logger.info { "created #{item_type} #{name.inspect} [#{id}]" }

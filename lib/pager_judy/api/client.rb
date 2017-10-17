@@ -5,6 +5,8 @@ require "uri"
 module PagerJudy
   module API
 
+    # Communicate with the PagerDuty API.
+    #
     class Client
 
       def initialize(api_key, base_uri: "https://api.pagerduty.com/", logger: nil, dry_run: false)

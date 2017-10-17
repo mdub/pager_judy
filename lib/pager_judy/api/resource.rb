@@ -6,6 +6,8 @@ require "uri"
 module PagerJudy
   module API
 
+    # Represents an API endpoint.
+    #
     class Resource
 
       def initialize(api_key:, uri:, logger: nil, dry_run: false)

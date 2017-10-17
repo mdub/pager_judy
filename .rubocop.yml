@@ -29,8 +29,7 @@ Style/ConditionalAssignment:
   Enabled: false
 
 Style/Documentation:
-  Exclude:
-    - "spec/**/*"
+  Enabled: false
 
 Style/Encoding:
   EnforcedStyle: when_needed

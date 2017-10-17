@@ -40,8 +40,6 @@ module PagerJudy
 
         include CollectionBehaviour
 
-        private
-
         def collection
           client.escalation_policies.with(query: query)
         end
@@ -65,8 +63,6 @@ module PagerJudy
         option %w[-q --query], "FILTER", "name filter"
 
         include CollectionBehaviour
-
-        private
 
         def collection
           client.schedules.with(query: query)
@@ -93,8 +89,6 @@ module PagerJudy
 
         include CollectionBehaviour
 
-        private
-
         def collection
           client.services.with("query" => query, "team_ids[]" => team)
         end
@@ -119,8 +113,6 @@ module PagerJudy
 
         include CollectionBehaviour
 
-        private
-
         def collection
           client.teams.with(query: query)
         end
@@ -142,8 +134,6 @@ module PagerJudy
       subcommand "users", "User operations" do
 
         include CollectionBehaviour
-
-        private
 
         def collection
           client.users

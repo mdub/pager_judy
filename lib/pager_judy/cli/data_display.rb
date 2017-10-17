@@ -38,7 +38,7 @@ module PagerJudy
       def select_data(data, jmespath_expression = nil)
         return data if jmespath_expression.nil?
         JMESPath.search(jmespath_expression, data)
-      rescue JMESPath::Errors::SyntaxError => e
+      rescue JMESPath::Errors::SyntaxError
         signal_error("invalid JMESPath expression")
       end
 

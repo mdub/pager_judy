@@ -1,6 +1,8 @@
 module PagerJudy
   module API
 
+    # An error from the PagerDuty REST API.
+    #
     class HttpError < StandardError
 
       def initialize(request, response)

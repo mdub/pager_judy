@@ -1,6 +1,8 @@
 module PagerJudy
   module API
 
+    # Represents an item, e.g. a service, a user, ...
+    #
     class Item
 
       def initialize(resource, type, id)
@@ -19,12 +21,12 @@ module PagerJudy
       end
 
       def update(data)
-        result = if dry_run?
-                   data
-                 else
-                   resource.put(type => data).fetch(type)
+        if dry_run?
+          result = data
+        else
+          result = resource.put(type => data).fetch(type)
         end
-        name = data.fetch("name")
+        name = result.fetch("name")
         logger.info { "updated #{type} #{name.inspect} [#{id}]" }
       end
 

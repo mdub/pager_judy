@@ -25,7 +25,7 @@ module PagerJudy
       attr_writer :db
 
       def collection_type
-        collection_type = params["collection_type"]
+        params["collection_type"]
       end
 
       def collection
