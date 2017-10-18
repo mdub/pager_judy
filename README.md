@@ -1,4 +1,4 @@
-# PagerJudy
+# PagerJudy [![Build status](https://badge.buildkite.com/94204ed8f1b5430f74385e4342653a78b5f1eb4d1864055b4e.svg)](https://buildkite.com/rea/cowbell-slash-pagerjudy)
 
 PagerJudy is:
 - a Ruby client for the [PagerDuty API](https://v2.developer.pagerduty.com/v2/page/api-reference)
