@@ -50,6 +50,13 @@ RSpec.describe PagerJudy::Sync::Syncer do
   let(:config) { PagerJudy::Sync::Config.from(config_data) }
   let(:syncer) { described_class.new(config: config, client: client) }
 
+  def item_id(collection, name)
+    db.fetch(collection).each do |id, detail|
+      return id if detail.fetch("name") == name
+    end
+    nil
+  end
+
   describe "#sync" do
 
     before do
@@ -69,15 +76,17 @@ RSpec.describe PagerJudy::Sync::Syncer do
       end
 
       it "creates the service" do
-        service_matcher = hash_including(
-          "name" => "new-service",
-          "description" => "My new service",
-          "escalation_policy" => {
-            "id" => "EP123",
-            "type" => "escalation_policy_reference"
+        expect(db).to match_pact(
+          "services" => {
+            item_id("services", "new-service") => {
+              "description" => "My new service",
+              "escalation_policy" => {
+                "id" => "EP123",
+                "type" => "escalation_policy_reference"
+              }
+            }
           }
         )
-        expect(db.fetch("services").values).to include(service_matcher)
       end
 
       it "leaves existing services alone" do
@@ -145,8 +154,7 @@ RSpec.describe PagerJudy::Sync::Syncer do
       end
 
       it "does not create new services" do
-        service_matcher = hash_including("name" => "new-service")
-        expect(db.fetch("services").values).not_to include(service_matcher)
+        expect(item_id("services", "new-service")).to be_nil
       end
 
       it "leaves existing services alone" do
