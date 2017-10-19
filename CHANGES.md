@@ -1,3 +1,7 @@
+## 0.1.5 (2017-08-19)
+
+* Add service timeouts functionality.
+
 ## 0.1.4 (2017-08-18)
 
 * Add "--dry-run" option to "configure".
