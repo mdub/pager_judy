@@ -5,19 +5,25 @@ module PagerJudy
     #
     class Item
 
-      def initialize(resource, type, id)
+      def initialize(resource, type, id, criteria = {})
         @resource = resource
         @type = type
         @id = id
+        @criteria = criteria
       end
 
       attr_reader :resource
       attr_reader :type
       attr_reader :id
-      attr_reader :dry_run
+      attr_reader :criteria
+
+      def with(more_criteria)
+        more_criteria = Hash[more_criteria.select { |_, v| v }]
+        self.class.new(resource, type, id, criteria.merge(more_criteria))
+      end
 
       def read
-        resource.get.fetch(type)
+        resource.get(criteria).fetch(type)
       end
 
       def update(data)

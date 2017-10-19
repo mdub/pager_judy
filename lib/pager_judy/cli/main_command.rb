@@ -72,12 +72,16 @@ module PagerJudy
 
       subcommand "service", "Display service" do
 
+        option %w[--include], "TYPE", "linked objects to include", :multivalued => true
+
         parameter "ID", "service ID"
 
         include ItemBehaviour
 
         def item
-          client.services[id]
+          client.services[id].with(
+            "include[]" => include_list
+          )
         end
 
       end
@@ -85,12 +89,17 @@ module PagerJudy
       subcommand "services", "Display services" do
 
         option %w[-q --query], "FILTER", "name filter"
-        option %w[--team], "ID", "team ID"
+        option %w[--team], "ID", "team ID", :multivalued => true
+        option %w[--include], "TYPE", "linked objects to include", :multivalued => true
 
         include CollectionBehaviour
 
         def collection
-          client.services.with("query" => query, "team_ids[]" => team)
+          client.services.with(
+            "query" => query,
+            "team_ids[]" => team_list,
+            "include[]" => include_list
+          )
         end
 
       end
