@@ -41,6 +41,10 @@ module PagerJudy
 
         attribute :description
 
+        attribute :acknowledgement_timeout, default: 1800
+
+        attribute :auto_resolve_timeout, default: 14400
+
         component :escalation_policy do
 
           attribute :id
