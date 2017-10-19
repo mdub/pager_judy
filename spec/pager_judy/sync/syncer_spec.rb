@@ -75,10 +75,12 @@ RSpec.describe PagerJudy::Sync::Syncer do
         YAML
       end
 
+      let(:new_service_id) { item_id("services", "new-service") }
+
       it "creates the service" do
         expect(db).to match_pact(
           "services" => {
-            item_id("services", "new-service") => {
+            new_service_id => {
               "description" => "My new service",
               "escalation_policy" => {
                 "id" => "EP123",
@@ -103,7 +105,7 @@ RSpec.describe PagerJudy::Sync::Syncer do
       it "has sensible timeout defaults" do
         expect(db).to match_pact(
           "services" => {
-            item_id("services", "new-service") => {
+            new_service_id => {
               "auto_resolve_timeout" => 14400,
               "acknowledgement_timeout" => 1800
             }
@@ -128,11 +130,45 @@ RSpec.describe PagerJudy::Sync::Syncer do
         it "uses the specified values" do
           expect(db).to match_pact(
             "services" => {
-              item_id("services", "new-service") => {
+              new_service_id => {
                 "auto_resolve_timeout" => nil,
                 "acknowledgement_timeout" => 3600
               }
             }
+          )
+        end
+
+      end
+
+      context "with integrations configured" do
+
+        let(:config_data) do
+          YAML.safe_load(<<-YAML)
+            services:
+              new-service:
+                description: "My new service"
+                escalation_policy:
+                  id: EP123
+                integrations:
+                  cloudwatch:
+                    type: aws_cloudwatch
+                  new_relic:
+                    type: generic_events_api
+          YAML
+        end
+
+        it "creates integrations" do
+          pending
+          integrations = db.dig("services", new_service_id, "integrations")
+          expect(integrations.values).to include(
+            hash_including(
+              "name" => "cloudwatch",
+              "type" => "aws_cloudwatch_inbound_integration"
+            ),
+            hash_including(
+              "name" => "new_relic",
+              "type" => "generic_events_api_inbound_integration"
+            )
           )
         end
 

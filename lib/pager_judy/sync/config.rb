@@ -55,6 +55,12 @@ module PagerJudy
 
         end
 
+        component_dict :integrations do
+
+          attribute :type
+
+        end
+
       end
 
     end
