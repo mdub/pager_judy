@@ -111,6 +111,33 @@ RSpec.describe PagerJudy::Sync::Syncer do
         )
       end
 
+      context "with explicit timeout values" do
+
+        let(:config_data) do
+          YAML.safe_load(<<-YAML)
+            services:
+              new-service:
+                description: "My new service"
+                auto_resolve_timeout: ~
+                acknowledgement_timeout: 3600
+                escalation_policy:
+                  id: EP123
+          YAML
+        end
+
+        it "uses the specified values" do
+          expect(db).to match_pact(
+            "services" => {
+              item_id("services", "new-service") => {
+                "auto_resolve_timeout" => nil,
+                "acknowledgement_timeout" => 3600
+              }
+            }
+          )
+        end
+
+      end
+
     end
 
     context "with a updated service" do
