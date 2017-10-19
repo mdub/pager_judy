@@ -1,3 +1,8 @@
+## PENDING
+
+* Add "--include" option for services.
+* Add "vendors".
+
 ## 0.1.5 (2017-08-19)
 
 * Add service timeouts functionality.

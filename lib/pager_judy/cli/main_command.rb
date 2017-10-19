@@ -150,6 +150,28 @@ module PagerJudy
 
       end
 
+      subcommand "vendor", "Specific vendor" do
+
+        parameter "ID", "vendor ID"
+
+        include ItemBehaviour
+
+        def item
+          client.vendors[id]
+        end
+
+      end
+
+      subcommand "vendors", "Vendor list" do
+
+        include CollectionBehaviour
+
+        def collection
+          client.vendors
+        end
+
+      end
+
       subcommand "configure", "Apply config" do
 
         option "--check", :flag, "just validate the config"

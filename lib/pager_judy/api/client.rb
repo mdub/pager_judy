@@ -39,6 +39,10 @@ module PagerJudy
         collection("users")
       end
 
+      def vendors
+        collection("vendors")
+      end
+
     end
 
   end
