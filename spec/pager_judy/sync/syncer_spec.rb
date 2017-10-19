@@ -1,6 +1,7 @@
 require "spec_helper"
 
 require "console_logger"
+require "pager_judy/sync/config"
 require "pager_judy/sync/syncer"
 require "pager_judy/api/client"
 require "pager_judy/api/fake_api_app"
