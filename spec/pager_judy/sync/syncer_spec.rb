@@ -101,12 +101,14 @@ RSpec.describe PagerJudy::Sync::Syncer do
       end
 
       it "has sensible timeout defaults" do
-        service_matcher = hash_including(
-          "name" => "new-service",
-          "auto_resolve_timeout" => 14400,
-          "acknowledgement_timeout" => 1800
+        expect(db).to match_pact(
+          "services" => {
+            item_id("services", "new-service") => {
+              "auto_resolve_timeout" => 14400,
+              "acknowledgement_timeout" => 1800
+            }
+          }
         )
-        expect(db.fetch("services").values).to include(service_matcher)
       end
 
     end
