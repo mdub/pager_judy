@@ -40,12 +40,42 @@ module PagerJudy
         @item_id ||= params["item_id"]
       end
 
-      def item_exists?
-        collection.key?(item_id)
+      def item
+        return_error(404, "#{item_type} #{item_id} not found") unless collection.key?(item_id)
+        collection.fetch(item_id)
       end
 
       def item_data
-        collection.fetch(item_id).merge("id" => item_id, "type" => "item_type")
+        item.merge("id" => item_id)
+      end
+
+      def sub_collection_type
+        params["sub_collection_type"]
+      end
+
+      def sub_collection
+        item[sub_collection_type] ||= {}
+      end
+
+      def sub_item_type
+        sub_collection_type.chomp("s")
+      end
+
+      def sub_item_id
+        @sub_item_id ||= params["sub_item_id"]
+      end
+
+      def sub_item_exists?
+        sub_collection.key?(sub_item_id)
+      end
+
+      def sub_item
+        return_error(404, "#{sub_item_type} #{sub_item_id} not found") unless sub_collection.key?(sub_item_id)
+        sub_collection.fetch(sub_item_id)
+      end
+
+      def sub_item_data
+        sub_collection.fetch(sub_item_id).merge("id" => sub_item_id)
       end
 
       # List a collection
@@ -65,7 +95,6 @@ module PagerJudy
       # Show an item
       #
       get "/:collection_type/:item_id" do
-        return_error(404, "#{item_type} #{item_id} not found") unless item_exists?
         return_json(item_type => item_data)
       end
 
@@ -74,7 +103,6 @@ module PagerJudy
       post "/:collection_type" do
         data = json_body.fetch(item_type)
         data.delete("id")
-        data.delete("type")
         @item_id = SecureRandom.hex(4)
         collection[@item_id] = data
         return_json({ item_type => item_data }, 201)
@@ -83,12 +111,31 @@ module PagerJudy
       # Update an item
       #
       put "/:collection_type/:item_id" do
-        return_error(404, "#{item_type} #{item_id} not found") unless item_exists?
         data = json_body.fetch(item_type)
         data.delete("id")
         data.delete("type")
-        collection[item_id].merge!(data)
+        item.merge!(data)
         return_json({ item_type => item_data }, 200)
+      end
+
+      # Create a sub-item
+      #
+      post "/:collection_type/:item_id/:sub_collection_type" do
+        data = json_body.fetch(sub_item_type)
+        data.delete("id")
+        @sub_item_id = SecureRandom.hex(4)
+        sub_collection[@sub_item_id] = data
+        return_json({ sub_item_type => sub_item_data }, 201)
+      end
+
+      # Update a sub-item
+      #
+      put "/:collection_type/:item_id/:sub_collection_type/:sub_item_id" do
+        data = json_body.fetch(sub_item_type)
+        data.delete("id")
+        data.delete("type")
+        sub_item.merge!(data)
+        return_json({ sub_item_type => sub_item_data }, 200)
       end
 
       not_found do

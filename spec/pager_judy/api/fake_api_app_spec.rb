@@ -210,6 +210,101 @@ RSpec.describe PagerJudy::API::FakeApp do
 
     end
 
+    describe "POST /collection/ID/subcollection" do
+
+      let(:db) do
+        YAML.safe_load(<<-DATA)
+          things:
+            T1:
+              name: Thing One
+        DATA
+      end
+
+      let(:part_data) do
+        {
+          "name" => "Part 1"
+        }
+      end
+
+      before do
+        post "/things/T1/parts", MultiJson.dump("part" => part_data)
+      end
+
+      it "succeeds" do
+        expect(last_response.status).to eq(201)
+      end
+
+      def generated_id
+        body_json.dig("part", "id")
+      end
+
+      it "generates an id" do
+        expect(generated_id).not_to be_nil
+      end
+
+      it "stores the data" do
+        expect(db.dig("things", "T1", "parts", generated_id, "name")).to eq("Part 1")
+      end
+
+      it "returns the data" do
+        expect(body_json).to match_pact(
+          "part" => {
+            "id" => generated_id,
+            "name" => "Part 1"
+          }
+        )
+      end
+
+    end
+
+    describe "PUT /collection/ID/subcollection/item" do
+
+      let(:db) do
+        YAML.safe_load(<<-DATA)
+          things:
+            T1:
+              parts:
+                P1:
+                  name: Part One
+        DATA
+      end
+
+      let(:part_data) do
+        {
+          "name" => "New name",
+          "extra" => "stuff"
+        }
+      end
+
+      before do
+        put "/things/T1/parts/P1", MultiJson.dump("part" => part_data)
+      end
+
+      it "succeeds" do
+        expect(last_response.status).to eq(200)
+      end
+
+      it "update the data" do
+        expect(db.dig("things", "T1", "parts")).to match_pact(
+          "P1" => {
+            "name" => "New name",
+            "extra" => "stuff"
+          }
+        )
+      end
+
+      it "returns data" do
+        expect(body_json).to match_pact(
+          "part" => {
+            "id" => "P1",
+            "name" => "New name",
+            "extra" => "stuff"
+          }
+        )
+      end
+
+    end
+
   end
 
 end
