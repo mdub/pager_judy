@@ -9,7 +9,7 @@ services:
     working_dir: /work
     command: ["bash"]
     environment:
-      PAGER_DUTY_API_TOKEN: 
+      PAGER_DUTY_API_KEY:
 
 volumes:
   ruby2.4-bundle-cache:
