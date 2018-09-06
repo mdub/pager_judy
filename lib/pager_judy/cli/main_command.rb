@@ -172,6 +172,46 @@ module PagerJudy
 
       end
 
+      subcommand "viz", "Generate Graphviz Dot diagram" do
+
+        def execute
+          services = client.services
+          escalation_policies = client.escalation_policies
+          puts %(digraph pagerduty {)
+          puts %(rankdir=LR;)
+          integrations = []
+          services.each do |service|
+            service.fetch('integrations').each do |integration|
+              integrations << integration
+              puts %(#{integration.fetch('id')} -> #{service.fetch('id')};)
+              puts %(#{integration.fetch('id')} [label="#{integration.fetch('summary')}",shape=box];)
+            end
+          end
+          puts same_rank(integrations)
+          services.each do |service|
+            puts %(#{service.fetch('id')} [label="#{service.fetch('name')}",shape=box,style=filled,color=lightgrey];)
+            ep = service['escalation_policy']
+            if ep
+              puts %(#{service.fetch('id')} -> #{ep.fetch('id')};)
+            end
+          end
+          puts same_rank(services)
+          escalation_policies.each do |ep|
+            puts %{#{ep.fetch('id')} [label="#{ep.fetch('name')}",shape=box,style=filled,color=lightgrey];}
+          end
+          puts same_rank(escalation_policies)
+          puts %(})
+        end
+
+        private
+
+        def same_rank(things)
+          ids = things.map { |thing| thing.fetch('id') }
+          "{" + ["rank=same", *ids].join(';') + "}"
+        end
+
+      end
+
       subcommand "configure", "Apply config" do
 
         option "--check", :flag, "just validate the config"
