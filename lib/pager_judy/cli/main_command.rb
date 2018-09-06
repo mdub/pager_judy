@@ -196,10 +196,20 @@ module PagerJudy
             end
           end
           puts same_rank(services)
+          escalation_targets = {}
           escalation_policies.each do |ep|
             puts %{#{ep.fetch('id')} [label="#{ep.fetch('name')}",shape=box,style=filled,color=lightgrey];}
+            ep.fetch('escalation_rules').each do |rule|
+              rule.fetch('targets').each do |target|
+                puts %(#{ep.fetch('id')} -> #{target.fetch('id')};)
+                escalation_targets[target.fetch('id')] = target.fetch('summary')
+              end
+            end
           end
           puts same_rank(escalation_policies)
+          escalation_targets.each do |id, summary|
+            puts %(#{id} [label="#{summary}",shape=box];)
+          end
           puts %(})
         end
 
