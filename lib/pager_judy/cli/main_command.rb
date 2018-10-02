@@ -3,6 +3,7 @@ require "console_logger"
 require "pager_judy/api/client"
 require "pager_judy/cli/collection_behaviour"
 require "pager_judy/cli/item_behaviour"
+require "pager_judy/cli/time_filtering"
 require "pager_judy/sync"
 require "pager_judy/version"
 
@@ -42,6 +43,17 @@ module PagerJudy
 
         def collection
           client.escalation_policies.with(query: query)
+        end
+
+      end
+
+      subcommand ["incidents"], "Display incidents" do
+
+        include CollectionBehaviour
+        include TimeFiltering
+
+        def collection
+          client.incidents.with(time_filters)
         end
 
       end
