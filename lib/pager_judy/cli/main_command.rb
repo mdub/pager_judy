@@ -49,11 +49,17 @@ module PagerJudy
 
       subcommand ["incidents"], "Display incidents" do
 
+        option %w[-s --status], "STATUS", "status", :multivalued => true
+
         include CollectionBehaviour
         include TimeFiltering
 
         def collection
-          client.incidents.with(time_filters)
+          client.incidents.with(filters)
+        end
+
+        def filters
+          time_filters.merge("statuses[]" => status_list).select { |_,v| v }
         end
 
       end
