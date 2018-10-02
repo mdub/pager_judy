@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "clamp", "~> 1.1.2"
+gem "clamp", "~> 1.3.0"
 gem "config_hound", "~> 1.4", ">= 1.4.1"
 gem "config_mapper", "~> 1.6"
 gem "console_logger", "~> 1.0"
