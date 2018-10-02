@@ -23,7 +23,7 @@ module PagerJudy
 
         def execute
           collection.each do |item|
-            puts "#{item.fetch('id')}: #{item.fetch('name')}"
+            puts "#{item.fetch('id')}: #{item.fetch('summary')}"
           end
         end
 
@@ -33,9 +33,9 @@ module PagerJudy
 
         include DataDisplay
 
-        extend Clamp::Parameter::Declaration
-
-        parameter "[EXPR]", "JMESPath expression"
+        def self.included(target)
+          target.parameter "[EXPR]", "JMESPath expression"
+        end
 
         def execute
           puts display_data(collection.to_a, expr)
