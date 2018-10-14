@@ -27,6 +27,10 @@ module PagerJudy
         collection("incidents")
       end
 
+      def notifications
+        collection("notifications")
+      end
+
       def schedules
         collection("schedules")
       end

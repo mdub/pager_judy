@@ -64,6 +64,22 @@ module PagerJudy
 
       end
 
+      subcommand ["notifications"], "Display notifications" do
+
+        include TimeFiltering
+
+        self.default_subcommand = "data"
+
+        subcommand ["data", "d"], "Full details" do
+          include CollectionBehaviour::DataSubcommand
+        end
+
+        def collection
+          client.notifications.with(time_filters)
+        end
+
+      end
+
       subcommand "schedule", "Display schedule" do
 
         parameter "ID", "schedule ID"

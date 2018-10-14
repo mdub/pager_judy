@@ -36,6 +36,10 @@ module PagerJudy
         Time.now - DAY
       end
 
+      def default_before
+        Time.now
+      end
+
     end
 
   end
