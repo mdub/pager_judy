@@ -23,6 +23,10 @@ module PagerJudy
         collection("escalation_policies")
       end
 
+      def extensions
+        collection("extensions")
+      end
+
       def incidents
         collection("incidents")
       end

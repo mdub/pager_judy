@@ -47,6 +47,30 @@ module PagerJudy
 
       end
 
+      subcommand ["extension", "ext"], "Display extension" do
+
+        parameter "ID", "extension ID"
+
+        include ItemBehaviour
+
+        def item
+          client.extensions[id]
+        end
+
+      end
+
+      subcommand ["extensions", "exts"], "Display extensions" do
+
+        option %w[-q --query], "FILTER", "name filter"
+
+        include CollectionBehaviour
+
+        def collection
+          client.extensions.with(query: query)
+        end
+
+      end
+
       subcommand ["incidents"], "Display incidents" do
 
         option %w[-s --status], "STATUS", "status", :multivalued => true
