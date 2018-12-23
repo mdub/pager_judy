@@ -1,4 +1,4 @@
-FROM ruby:2.4-alpine@sha256:6b85a95c42eaf84f46884c82376aa653b343a0bd81ce3350dea2c56e0b15dcd6
+FROM ruby:2.5-alpine
 
 RUN { echo 'install: --no-document'; echo 'update: --no-document'; } >> /etc/gemrc
 
