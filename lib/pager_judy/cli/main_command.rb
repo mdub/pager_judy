@@ -4,7 +4,6 @@ require "pager_judy/api/client"
 require "pager_judy/cli/collection_behaviour"
 require "pager_judy/cli/item_behaviour"
 require "pager_judy/cli/time_filtering"
-require "pager_judy/sync"
 require "pager_judy/version"
 
 module PagerJudy
@@ -280,26 +279,10 @@ module PagerJudy
 
       end
 
-      subcommand "configure", "Apply config" do
-
-        option "--check", :flag, "just validate the config"
-
-        parameter "SOURCE", "config file"
-
-        def execute
-          config = PagerJudy::Sync::Config.from(source)
-          return if check?
-          PagerJudy::Sync.sync(client: client, config: config)
-        end
-
-      end
-
       def run(*args)
         super(*args)
       rescue PagerJudy::API::HttpError => e
         $stderr.puts e.response.body
-        signal_error e.message
-      rescue ConfigMapper::MappingError => e
         signal_error e.message
       end
 

@@ -23,8 +23,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency "clamp", "~> 1.3.0"
-  spec.add_runtime_dependency "config_hound", "~> 1.4", ">= 1.4.1"
-  spec.add_runtime_dependency "config_mapper", "~> 1.6"
   spec.add_runtime_dependency "console_logger", "~> 1.0"
   spec.add_runtime_dependency "httpi"
   spec.add_runtime_dependency "jmespath"
