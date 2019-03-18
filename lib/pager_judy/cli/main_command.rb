@@ -103,6 +103,37 @@ module PagerJudy
 
       end
 
+      subcommand "oncalls", "Display those currently on-call" do
+
+        self.default_subcommand = "summary"
+
+        subcommand ["summary", "s"], "One-line summary" do
+
+          def execute
+            collection.map(&method(:oncall_summary)).compact.uniq.each(&method(:puts))
+          end
+
+          def oncall_summary(oncall)
+            from = oncall.fetch('start')
+            to = oncall.fetch('end')
+            who = oncall.dig('user', 'summary')
+            schedule = oncall.dig('schedule', 'summary')
+            return nil if schedule.nil?
+            "#{schedule} -> #{who} (#{from} - #{to})"
+          end
+
+        end
+
+        subcommand ["data", "d"], "Full details" do
+          include CollectionBehaviour::DataSubcommand
+        end
+
+        def collection
+          client.oncalls
+        end
+
+      end
+
       subcommand "schedule", "Display schedule" do
 
         parameter "ID", "schedule ID"
