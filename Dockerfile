@@ -10,13 +10,16 @@ RUN apk --no-cache add \
 WORKDIR /app
 
 COPY Gemfile /app/Gemfile
+COPY pager_judy.gemspec /app/pager_judy.gemspec
+COPY lib/pager_judy/version.rb /app/lib/pager_judy/version.rb
 COPY Gemfile.lock /app/Gemfile.lock
 RUN bundle install --without development test
 
-COPY bin /app/bin
-COPY lib /app/lib
+COPY CHANGES.md /app/
 COPY README.md /app/
+COPY exe /app/exe
+COPY lib /app/lib
 
 WORKDIR /cwd
 
-ENTRYPOINT ["/app/bin/pagerjudy"]
+ENTRYPOINT ["/app/exe/pagerjudy"]
