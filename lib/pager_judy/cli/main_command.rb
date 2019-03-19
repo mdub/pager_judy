@@ -155,6 +155,14 @@ module PagerJudy
           client.oncalls.with(filters)
         end
 
+        def default_after
+          Time.now
+        end
+
+        def default_before
+          Time.now
+        end
+
         def other_filters
           {
             "user_ids[]" => user_list,
