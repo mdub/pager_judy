@@ -119,19 +119,29 @@ module PagerJudy
           end
 
           def oncall_summary(oncall)
-            from = format_time(oncall.fetch('start'))
-            to = format_time(oncall.fetch('end'))
-            who = oncall.dig('user', 'summary')
             schedule = oncall.dig('schedule', 'summary')
             return nil if schedule.nil?
-            sprintf("%-35s %-19s %s - %s", schedule, who, from, to)
+            from = parse_time(oncall.fetch('start'))
+            to = parse_time(oncall.fetch('end'))
+            who = oncall.dig('user', 'summary')
+            sprintf("%-35s %-19s %s", schedule, who, format_time_range(from, to))
           end
 
-          def format_time(time)
-            return nil if time.nil?
-            time = Time.parse(time) if time.is_a?(String)
-            time = time.localtime
-            time.strftime("%a %d-%b-%Y %H:%M")
+          def parse_time(string)
+            return nil if string.nil?
+            Time.parse(string).localtime
+          end
+
+          def format_time_range(from, to)
+            bits = [from.strftime("%Y-%m-%d %H:%M")]
+            unless to.nil?
+              if to.to_date == from.to_date
+                bits << to.strftime("%H:%M")
+              else
+                bits << to.strftime("%Y-%m-%d %H:%M")
+              end
+            end
+            bits.join(" - ")
           end
 
         end
