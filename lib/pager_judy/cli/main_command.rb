@@ -41,7 +41,7 @@ module PagerJudy
         include CollectionBehaviour
 
         def collection
-          client.escalation_policies.with(query: query)
+          client.escalation_policies.with("query" => query)
         end
 
       end
@@ -65,7 +65,7 @@ module PagerJudy
         include CollectionBehaviour
 
         def collection
-          client.extensions.with(query: query)
+          client.extensions.with("query" => query)
         end
 
       end
@@ -107,6 +107,9 @@ module PagerJudy
 
         include TimeFiltering
 
+        option %w[-s --schedule], "ID", "schedule ID", :multivalued => true
+        option %w[-u --user], "ID", "user ID", :multivalued => true
+
         self.default_subcommand = "summary"
 
         subcommand ["summary", "s"], "One-line summary" do
@@ -138,7 +141,15 @@ module PagerJudy
         end
 
         def collection
-          client.oncalls.with(time_filters)
+          filters = time_filters.merge(other_filters)
+          client.oncalls.with(filters)
+        end
+
+        def other_filters
+          {
+            "user_ids[]" => user_list,
+            "schedule_ids[]" => schedule_list
+          }.reject { |_,v| v.empty? }
         end
 
       end
@@ -162,7 +173,7 @@ module PagerJudy
         include CollectionBehaviour
 
         def collection
-          client.schedules.with(query: query)
+          client.schedules.with("query" => query)
         end
 
       end
@@ -220,7 +231,7 @@ module PagerJudy
         include CollectionBehaviour
 
         def collection
-          client.teams.with(query: query)
+          client.teams.with("query" => query)
         end
 
       end

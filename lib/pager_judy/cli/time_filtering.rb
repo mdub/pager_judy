@@ -17,8 +17,8 @@ module PagerJudy
 
       def time_filters
         {
-          since: after,
-          until: before
+          "since" => after,
+          "until" => before
         }.select { |_,v| v }
       end
 
