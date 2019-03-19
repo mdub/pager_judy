@@ -1,7 +1,19 @@
-## PENDING
+## 0.2.2 (2019-03-19)
+
+* Add support for "oncalls".
+
+## 0.2.1 (2019-03-19)
+
+* Remove "configure" subcommand.
+* Add missing dependencies to gemspec.
+
+## 0.2.0 (2018-12-27)
 
 * Add "--include" option for services.
-* Add "vendors".
+* Add support for "vendors".
+* Add support for "notifications".
+* Add "viz" subcommand.
+* Support JMESPath in "data" subcommands.
 
 ## 0.1.5 (2017-08-19)
 
