@@ -105,6 +105,8 @@ module PagerJudy
 
       subcommand "oncalls", "Display those currently on-call" do
 
+        include TimeFiltering
+
         self.default_subcommand = "summary"
 
         subcommand ["summary", "s"], "One-line summary" do
@@ -136,7 +138,7 @@ module PagerJudy
         end
 
         def collection
-          client.oncalls
+          client.oncalls.with(time_filters)
         end
 
       end
