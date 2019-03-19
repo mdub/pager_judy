@@ -119,7 +119,7 @@ module PagerJudy
             who = oncall.dig('user', 'summary')
             schedule = oncall.dig('schedule', 'summary')
             return nil if schedule.nil?
-            "#{schedule} -> #{who} (#{from} - #{to})"
+            sprintf("%-35s %-19s %s - %s", schedule, who, from, to)
           end
 
           def format_time(time)
