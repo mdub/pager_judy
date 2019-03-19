@@ -103,7 +103,7 @@ module PagerJudy
 
       end
 
-      subcommand "oncalls", "Display those currently on-call" do
+      subcommand ["oncalls", "oncall"], "Display those currently on-call" do
 
         include TimeFiltering
 
@@ -134,12 +134,12 @@ module PagerJudy
 
           def format_time_range(from, to)
             bits = [from.strftime("%Y-%m-%d %H:%M")]
-            unless to.nil?
-              if to.to_date == from.to_date
-                bits << to.strftime("%H:%M")
-              else
-                bits << to.strftime("%Y-%m-%d %H:%M")
-              end
+            bits << if to.nil?
+              "..."
+            elsif to.to_date == from.to_date
+              to.strftime("%H:%M")
+            else
+              to.strftime("%Y-%m-%d %H:%M")
             end
             bits.join(" - ")
           end
