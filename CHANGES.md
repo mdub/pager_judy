@@ -1,6 +1,7 @@
-## PENDING
+## 0.3.0 (2019-04-03)
 
 * Use Chronic (if available) to parse time in CLI.
+* Add support for "logs".
 
 ## 0.2.2 (2019-03-19)
 
