@@ -87,6 +87,36 @@ module PagerJudy
 
       end
 
+      subcommand ["log-entries", "logs"], "Display log entries" do
+
+        include TimeFiltering
+
+        self.default_subcommand = "summary"
+
+        subcommand ["summary", "s"], "One-line summary" do
+
+          def execute
+            collection.each do |entry|
+              ts = Time.parse(entry.fetch("created_at"))
+              ts_string = ts.localtime.strftime("%Y-%m-%d %H:%M")
+              incident = entry.dig("incident", "summary")
+              event = entry.dig("summary")
+              puts "#{ts_string}: #{incident} - #{event}"
+            end
+          end
+
+        end
+
+        subcommand ["data", "d"], "Full details" do
+          include CollectionBehaviour::DataSubcommand
+        end
+
+        def collection
+          client.log_entries.with(time_filters)
+        end
+
+      end
+
       subcommand ["notifications"], "Display notifications" do
 
         include TimeFiltering

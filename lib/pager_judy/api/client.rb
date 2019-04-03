@@ -31,6 +31,10 @@ module PagerJudy
         collection("incidents")
       end
 
+      def log_entries
+        collection("log_entries")
+      end
+
       def notifications
         collection("notifications")
       end
