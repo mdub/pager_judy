@@ -1,6 +1,7 @@
 require "clamp"
 require "time"
 
+
 module PagerJudy
   module CLI
 
@@ -12,6 +13,13 @@ module PagerJudy
 
       option %w[-a --after], "DATETIME", "start date/time", default: "24 hours ago", attribute_name: :after
       option %w[-b --before], "DATETIME", "end date/time", attribute_name: :before
+
+      begin
+        require "chronic"
+        TimeParser = ::Chronic
+      rescue
+        TimeParser = ::Time
+      end
 
       protected
 
@@ -25,11 +33,11 @@ module PagerJudy
       private
 
       def after=(s)
-        @after = Time.parse(s)
+        @after = TimeParser.parse(s)
       end
 
       def before=(s)
-        @before = Time.parse(s)
+        @before = TimeParser.parse(s)
       end
 
       def default_after

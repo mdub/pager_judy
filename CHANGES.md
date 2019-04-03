@@ -1,3 +1,7 @@
+## PENDING
+
+* Use Chronic (if available) to parse time in CLI.
+
 ## 0.2.2 (2019-03-19)
 
 * Add support for "oncalls".
