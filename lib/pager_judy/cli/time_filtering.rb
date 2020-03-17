@@ -17,7 +17,7 @@ module PagerJudy
       begin
         require "chronic"
         TimeParser = ::Chronic
-      rescue
+      rescue LoadError
         TimeParser = ::Time
       end
 

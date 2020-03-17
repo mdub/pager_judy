@@ -1,3 +1,7 @@
+## 0.3.1 (2020-03-17)
+
+* Fix LoadError when Chronic is not available.
+
 ## 0.3.0 (2019-04-03)
 
 * Use Chronic (if available) to parse time in CLI.
